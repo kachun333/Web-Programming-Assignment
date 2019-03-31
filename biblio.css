@@ -7,12 +7,20 @@
 }
 
 
+#icon{
+  position: absolute;
+  left:-40%;
+  width:42px;
+}
+
+
 #biblio {
     position:absolute;
+    font-family: "Trajan Pro";
     top:8px;
     left:15%;
     color:black;
-    
+
 }
 
 #biblio:hover{
@@ -29,6 +37,7 @@
 
 .navigation {
     padding: 1% 10% 1% 13%;
+    font-family: "Trajan Pro";
     background-color:rgb(78, 25, 25);
     height:50px;
 }
@@ -67,11 +76,11 @@ a:hover, a:active, a:visited{
     position: relative;
     align-items: center;
     justify-content:center;
-    
+
 }
 
 .preview-descr{
-    
+
     top:240px;
     color:white;
     display: flex;
@@ -92,7 +101,7 @@ a:hover, a:active, a:visited{
     display: flex;
     position: relative;
 }
- 
+
 /* main  */
 
 #new-book{
@@ -125,7 +134,7 @@ a:hover, a:active, a:visited{
     position:absolute;
     right:20px;
     top:25px;
-    
+
 }
 
 .op-2{
