@@ -1,7 +1,7 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <link rel="icon" href="media/Bilbio_icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,25 +9,76 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="biblio.css">
     <title>Biblio - Your very own mini library website</title>
+    <style>
+
+    input[type=email], input[type=password] {
+        background: #f2f2f2;
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+  
+    .container {
+        background-color:white;
+        position: relative;
+        z-index: 1;
+        margin: 0 auto;
+        padding:30px 50px 30px 50px;
+    }
+</style>
+
 </head>
 
 <body id="preview">
-
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     <header id="header">
         <!--Menu Button-->
-        <a id="biblio" href="index.html">
-            <img id="icon" src="media/Bilbio_icon.png">
+        <a id="biblio" href="#">
             <h2>Biblio</h2>
         </a>
+    </header>
 
     <main class="preview-main">
         <h1 class="preview-title">BIBLIO</h1>
         <h3 class="preview-descr">Your very own mini library system</h3>
-        <a><button class="preview-button">LOGIN</button></a>
+        <a><button class="preview-button" onclick="document.getElementById('id01').style.display='block'">LOGIN</button></a>
 
     </main>
 
+    <div id="id01" class="modal">
 
+        <form class="signin" action="index.html">
+            <div class="container">
+                <br>
+                <input type="email" placeholder="Enter Email" name="uemail" required>
+                <br>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                <label><input type="checkbox" checked="checked" name="remember"> Remember me</label>
+                <br>
+                <button type="submit" onclick="myFunction()" class="loginbtn light">LOGIN</button>
+                &nbsp
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn light">CANCEL</button>
+                <br>
+                <br>
+                <p class="message">Not registered? <a href="signin.html">Create an account</a></p>
+                <br>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById('id01');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+
+        }
+    </script>
 
 </body>
 

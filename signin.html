@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Sign Up - Biblio</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="biblio.css">
+	<style>
+
+
+	.container {
+	position: relative;
+	background-color: white;
+	padding:25px 40px 30px 40px;
+	/* margin:10%; */
+	top:50px;
+	width:auto;
+	height:600px;
+	border:10px #D66853 solid;
+	border-radius:10px;
+	max-width: 800px;
+	min-width:450px;
+	}
+
+	.form-control{
+		width:100%;
+	}
+
+	#header{
+		min-width:450px;
+	}
+	</style>
+	
+</head>
+
+<body class="signup-page" onresize="removePhoto()" onload="removePhoto()">
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<header id="header">
+		<!--Menu Button-->
+		<a id="biblio" href="preview.html">
+			<h2>Biblio</h2>
+		</a>
+	</header>
+
+	<main>
+		<div>
+			<form class="form" action="preview.html">
+				<div class="container">
+					<h2 style="text-align:center"> Sign Up to Biblio </h2>
+					<div class="signupbox">
+						<br>
+						<label>Name:</label>
+						<input type="text" required class="form-control" placeholder="Full Name">
+						<br>
+						<label>Email:</label>
+						<input type="email" required class="form-control" placeholder="Email">
+						<br>
+						<label>Password:</label>
+						<input type="password" required class="form-control" placeholder="Password">
+						<br>
+						<label>Repeat Password:</label>
+						<input type="password" required class="form-control" placeholder="Repeat Password">
+						<br>
+						<br>
+					</div>
+						<div class="signup-photo">
+							<img  src="media/Bilbio_icon.png">
+						</div>
+						<div class="signup">
+							<div><button type="submit" class="signbtn light">SIGN UP</button></div>
+							<div><p class="sign-in">Already a member? &nbsp<a href="preview.html"> Sign in here</a></p>	</div>
+						</div>	
+				</div>
+				<br>
+			</form>
+		</div>
+	</main>
+	<footer class="text-center font-italic">
+		<hr>
+		Copyright &copy 2019 Biblio.com</br>
+	</footer>
+
+	<script>
+		function goBack() {
+			window.history.back();
+		}
+
+		
+		function removePhoto(){
+			var photo = document.querySelector(".signup-photo");
+			var box = document.querySelector(".signupbox");
+			var ctnr = document.querySelector(".container");
+			if(ctnr.offsetWidth<690){
+				photo.classList.add("hidden");
+		}
+			else{
+				photo.classList.remove("hidden");
+			}
+
+		}
+		
+	</script>
+</body>
+
+</html>
