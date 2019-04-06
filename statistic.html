@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard - Biblio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="biblio.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <!--Menu Button-->
+        <a id="biblio" href="index.html">
+            <h2>Biblio</h2>
+        </a>
+
+        <!-- profile picture -->
+        <div class="dropdown">
+            <img src="media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Setting</a>
+                <a class="dropdown-item" href="preview.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <div>
+            <ul>
+                <li class="navigation-item active">
+                    <a href="#">DASHBOARD</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="bookinfo.html">BOOKS</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="#">LENDING</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="#">MEMBER</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#">STATISTIC</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <main class="container">
+        <div class="row">
+            <div id="whole-page-boxes" class="inline boxes">
+                <h5>Graph Statistic</h5>
+                <canvas id="canvas"></canvas>
+            </div>
+
+        <div class="row">
+          <div id="whole-page-boxes" class="inline boxes">
+              <h5>Summary</h5>
+                <div id="div1">
+                  <p>1</p>
+                </div>
+                <div id="div2">
+                  <p>2</p>
+                </div>
+                <div id="div3">
+                  <p>3</p>
+                </div>
+                <div id="div4">
+                  <p>4</p>
+                </div>
+          </div>
+        </div>
+
+        <div class="row">
+            <div id="whole-page-boxes" class="inline boxes">
+                <h5>Top 10 Most Frequently Loaned Book</h5>
+                <div class="top10_book inline">
+                  <div >
+                    <img src="media/Books-Cover/book1.jpg" alt="Num 1">
+                  </div>
+
+                  <div class="inline">
+                    <img id="top10_booksize" src="media/Books-Cover/book2.jpg" alt="Num 2">
+                    <img id="top10_booksize" src="media/Books-Cover/book3.jpg" alt="Num 3">
+                    <img id="top10_booksize" src="media/Books-Cover/book4.jpg" alt="Num 4">
+                  </div>
+
+                  <div class="inline">
+                    <img id="top10_booksize" src="media/Books-Cover/book5.jpg" alt="Num 5">
+                    <img id="top10_booksize" src="media/Books-Cover/book6.jpg" alt="Num 6">
+                    <img id="top10_booksize" src="media/Books-Cover/book7.jpg" alt="Num 7">
+                  </div>
+
+                  <div class="inline">
+                    <img id="top10_booksize" src="media/Books-Cover/book8.jpg" alt="Num 8">
+                    <img id="top10_booksize" src="media/Books-Cover/book9.jpg" alt="Num 9">
+                    <img id="top10_booksize" src="media/Books-Cover/book10.jpg" alt="Num 10">
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div id="whole-page-boxes" class="inline boxes">
+              <h5>Top 10 Active Members</h5>
+              <p>waiting for your help first</p>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="boxes-2 inline">
+                <h5>Genre of books Own</h5>
+                <canvas id="chart-area"></canvas>
+            </div>
+
+            <div class="boxes-2 inline">
+              <h5>Genre of books Loaned Out</h5>
+              <canvas id="chart-area2"></canvas>
+            </div>
+        </div>
+
+
+    </main>
+    <footer class="text-center font-italic">
+        <hr>
+        Copyright &copy 2019 Biblio.com</br>
+    </footer>
+  	<script src="utils.js"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script type="text/javascript" src="graph.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
