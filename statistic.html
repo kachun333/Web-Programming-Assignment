@@ -63,45 +63,56 @@
                 <canvas id="canvas"></canvas>
             </div>
 
-        <div class="row">
-          <div id="whole-page-boxes" class="inline boxes">
+        <div id="summary" class="row">
+          <div id="whole-page-boxes" class="inline boxes container">
               <h5>Summary</h5>
+              <div class="quadrant">
+
                 <div id="div1">
-                  <p>1</p>
+                  <h5>Books Avaliable</h5>
+                  <p id="counter1" class="counter">110</p>
                 </div>
-                <div id="div2">
-                  <p>2</p>
-                </div>
-                <div id="div3">
-                  <p>3</p>
-                </div>
-                <div id="div4">
-                  <p>4</p>
-                </div>
+                  <div id="div2">
+                    <h5>Total Members</h5>
+                    <p id="counter2" class="counter">220</p>
+                  </div>
+
+              </div>
+
+              <div class="quadrant">
+                  <div id="div3">
+                    <h5>Books Loaned</h5>
+                    <p id="counter3" class="counter">330</p>
+                  </div>
+                  <div id="div4">
+                    <h5>Books Overdue</h5>
+                    <p id="counter4" class="counter">440</p>
+                  </div>
+              </div>
+
           </div>
         </div>
 
         <div class="row">
             <div id="whole-page-boxes" class="inline boxes">
                 <h5>Top 10 Most Frequently Loaned Book</h5>
-                <div class="top10_book inline">
-                  <div >
-                    <img src="media/Books-Cover/book1.jpg" alt="Num 1">
-                  </div>
-
-                  <div class="inline">
+                <div class="quadrant">
+                    <img id="top1_booksize" src="media/Books-Cover/book1.jpg" alt="Num 1">
+                </div>
+                <div class="quadrant">
+                  <div>
                     <img id="top10_booksize" src="media/Books-Cover/book2.jpg" alt="Num 2">
                     <img id="top10_booksize" src="media/Books-Cover/book3.jpg" alt="Num 3">
                     <img id="top10_booksize" src="media/Books-Cover/book4.jpg" alt="Num 4">
                   </div>
 
-                  <div class="inline">
+                  <div>
                     <img id="top10_booksize" src="media/Books-Cover/book5.jpg" alt="Num 5">
                     <img id="top10_booksize" src="media/Books-Cover/book6.jpg" alt="Num 6">
                     <img id="top10_booksize" src="media/Books-Cover/book7.jpg" alt="Num 7">
                   </div>
 
-                  <div class="inline">
+                  <div>
                     <img id="top10_booksize" src="media/Books-Cover/book8.jpg" alt="Num 8">
                     <img id="top10_booksize" src="media/Books-Cover/book9.jpg" alt="Num 9">
                     <img id="top10_booksize" src="media/Books-Cover/book10.jpg" alt="Num 10">
@@ -113,18 +124,40 @@
         <div class="row">
           <div id="whole-page-boxes" class="inline boxes">
               <h5>Top 10 Active Members</h5>
-              <p>waiting for your help first</p>
+              <div class="quadrant">
+                  <img id="top1_booksize" src="media/Books-Cover/user_icon.png" alt="Num 1">
+              </div>
+
+              <div class="quadrant">
+                <div>
+                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 2">
+                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 3">
+                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 4">
+                </div>
+
+                <div>
+                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 5">
+                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 6">
+                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 7">
+                </div>
+
+                <div>
+                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 8">
+                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 9">
+                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 10">
+                </div>
+              </div>
           </div>
         </div>
 
         <div class="row">
             <div class="boxes-2 inline">
-                <h5>Genre of books Own</h5>
+                <h5>Genre of Books Own</h5>
                 <canvas id="chart-area"></canvas>
             </div>
 
             <div class="boxes-2 inline">
-              <h5>Genre of books Loaned Out</h5>
+              <h5>Genre of Books Loaned Out</h5>
               <canvas id="chart-area2"></canvas>
             </div>
         </div>
@@ -135,9 +168,10 @@
         <hr>
         Copyright &copy 2019 Biblio.com</br>
     </footer>
-  	<script src="utils.js"></script>
+  	<script src="statistic_js/utils.js"></script>
+    <script type="text/javascript" src="statistic_js/CountUp.js"></script>
   	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script type="text/javascript" src="graph.js"></script>
+    <script type="text/javascript" src="statistic_js/statistic.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
