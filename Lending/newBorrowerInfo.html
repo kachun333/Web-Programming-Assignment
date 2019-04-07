@@ -1,0 +1,105 @@
+  
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="../media/Bilbio_icon.png">
+    <title>New Borrower Info</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../biblio.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <!--Home Button-->
+        <div >
+
+          <a id="biblio" href="../index.html">
+              <h2>Biblio</h2>
+          </a>
+        </div>
+
+
+        <!-- profile picture -->
+        <div class="dropdown">
+            <img src="../media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Setting</a>
+                <a class="dropdown-item" href="#">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <div>
+            <ul>
+                <li class="navigation-item active">
+                    <a href="../index.html">DASHBOARD</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="../book.html">BOOKS</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="lending.html">LENDING</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="#">MEMBER</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="../statistic.html">STATISTIC</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <main class="container">
+	<div class="jumbotron">
+		<h1 class="display-4">Hello, new friend!</h1>
+		<p class="lead">Please fill up your info before lending book. <br><small>I wont share your details to other.</small></p>
+	</div>
+	
+	<form>
+	<div class="form-group">
+		<label for="exampleInputName">Borrower's Name</label>
+		<input type="text" class="form-control" id="exampleInputName" placeholder="Name" required />
+	</div>
+	<div class="form-group">
+		<label for="exampleInputHp">Handphone Number</label>
+		<input type="number" class="form-control" id="exampleInputHp" placeholder="Current Handphone Number" required />
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail1">Email address</label>
+		<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required />
+		<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+	</div>
+	<div class="form-group">
+		<label for="exampleTextarea">Address</label>
+		<textarea class="form-control" id="exampleTextarea" placeholder="Borrower's Home Address" rows="3"></textarea>
+	</div>
+	<input type="submit" role="button" onclick="javascript:awesomeClick();" id="doneButton" >
+	</form>
+    </main>
+	
+    <footer class="container text-center font-italic">
+        <hr>
+        Copyright &copy 2019 Biblio.com</br>
+    </footer>
+	
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="newBorrowerInfo.js"></script>
+</body>
+
+</html>

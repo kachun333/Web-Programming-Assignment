@@ -1,33 +1,39 @@
+  
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Dashboard - Biblio</title>
+    <link rel="icon" href="../media/Bilbio_icon.png">
+    <title>Done Lending!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="biblio.css">
+    <link rel="stylesheet" href="../biblio.css">
 </head>
 
 <body>
 
     <header id="header">
-        <!--Menu Button-->
-        <a id="biblio" href="index.html">
-            <h2>Biblio</h2>
-        </a>
+        <!--Home Button-->
+        <div >
+
+          <a id="biblio" href="../index.html">
+              <h2>Biblio</h2>
+          </a>
+        </div>
+
 
         <!-- profile picture -->
         <div class="dropdown">
-            <img src="media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
+            <img src="../media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
 
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Setting</a>
-                <a class="dropdown-item" href="preview.html">Logout</a>
+                <a class="dropdown-item" href="#">Logout</a>
             </div>
         </div>
     </header>
@@ -36,57 +42,51 @@
         <div>
             <ul>
                 <li class="navigation-item active">
-                    <a href="#">DASHBOARD</a>
+                    <a href="../index.html">DASHBOARD</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="book.html">BOOKS</a>
+                    <a href="../book.html">BOOKS</a>
                 </li>
 
                 <li class="navigation-item">
-                    <a href="Lending/lending.html">LENDING</a>
+                    <a href="lending.html">LENDING</a>
                 </li>
-
+				
                 <li class="navigation-item">
                     <a href="#">MEMBER</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="statistic.html">STATISTIC</a>
+                    <a href="../statistic.html">STATISTIC</a>
                 </li>
 
             </ul>
         </div>
     </nav>
     <main class="container">
-        <div class="row">
-            <div id="new-book" class="inline boxes">
-                <h5>New book</h5>
-                <a href="bookSearch.html"><img src="media/add.png" class="op-1"></a>
-            </div>
-
-            <div id="stats" class="inline boxes">
-                <h5>Total</h5>
-                <h3>100</h2><br>
-                    <h5>Checkouts</h5>
-                    <h3>30</h3><br>
-                    <h5>Overdue</h5>
-                    <h3>5</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="boxes-2 inline">
-                <h5>Check-out</h5>
-                <img src="media/add.png" class="op-2">
-                <img src="media/minus.png" class="op-1" id="minus">
-            </div>
-
-            <div class="boxes-2 inline">
-                <h5>Overdue</h5>
-            </div>
-        </div>
-
-
+	<div class="jumbotron">
+		<h1 class="display-4" style=padding-top:10px style=margin-top:20px style=margin-bottom:10px>Done lending process!</h1>
+		<div class="alert alert-dark" role="alert" style=padding-top:20px style=padding-bottom:20px>
+			<strong>Borrower's Info</strong>
+			<p>Name: Clement<br>
+			E-mail: clement77@gmail.com<br>
+			HP: 012 986 7899<br>
+			Number of book holding: 1<br></p>
+		</div>
+	</div>
+	
+	<div class="row" style=padding-bottom:10px>
+        <div class="boxes inline">
+            <h5>Remainder</h5>
+			<p>Kindly remember returning this book within a month, unless you want in my blacklist!</p>
+		</div>
+    </div>
+	<div  style=text-align:center>
+	<a class="btn btn-danger" href="lending-scanBarcode.html" role="button" id="addButton">Add</a>
+	<a class="btn btn-danger" href="lending.html" role="button" class="align-middle">Quit</a>
+	</div>
     </main>
-    <footer class="text-center font-italic">
+	
+    <footer class="container text-center font-italic">
         <hr>
         Copyright &copy 2019 Biblio.com</br>
     </footer>
@@ -97,6 +97,7 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+	<script src="lending-done.js"></script>
 </body>
 
 </html>
