@@ -550,7 +550,6 @@ margin-bottom:10px;
     border:1px grey solid;
   }
 
-
 #canvas{
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -563,26 +562,33 @@ margin-bottom:10px;
 
 #top1_booksize{
   width: 100%;
+  padding-top: 10%;
 }
 
 #top10_booksize{
-  width: 30%;
+  width: 20%;
   padding-right: 10px;
 }
 
 .quadrant{
-  width: 40%;
+  display: inline-block;
   float: left;
+  text-align: center;
+  margin: auto;
+  overflow:auto;
+  position: relative;
 }
 
-#div1 { width: 100%; float: left; background: #FF9F40; }
-#div2 { width: 100%; float: left; background: #36A2EB; }
-#div3 { width: 100%; float: left; background: #22CECE; }
-#div4 { width: 100%; float: left; background: #FF6384; }
+.topsize{
+  width:  20%
+}
+
+#div1 {     width: 20%; background: #FF9F40; }
+#div2 {     width: 20%; background: #36A2EB; }
+#div3 {     width: 20%; background: #22CECE; }
+#div4 {     width: 20%; background: #FF6384; }
 
 .counter{
-  font-size: 120px;
+  font-size: 50px;
   color: white;
-  float: left;
-  padding-left: 30px
 }
