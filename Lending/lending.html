@@ -1,0 +1,152 @@
+  
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="../media/Bilbio_icon.png">
+    <title>Lending Book</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../biblio.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <!--Home Button-->
+        <div >
+
+          <a id="biblio" href="../index.html">
+              <h2>Biblio</h2>
+          </a>
+        </div>
+
+
+        <!-- profile picture -->
+        <div class="dropdown">
+            <img src="../media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Setting</a>
+                <a class="dropdown-item" href="#">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <div>
+            <ul>
+                <li class="navigation-item active">
+                    <a href="../index.html">DASHBOARD</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="../book.html">BOOKS</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="lending.html">LENDING</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="#">MEMBER</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="../statistic.html">STATISTIC</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <main class="container" style=padding-top:20px>
+	<div class="alert alert-warning" role="alert">
+		<h2>Lending - Book Checkout</h2>
+	</div>
+	<form style=margin-bottom:10px style=margin-top:10px><a class="btn btn-danger" href="keyIn.html" role="button">Add</a></form>
+	
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+			<th scope="col">Book</th>
+			<th scope="col">Borrower</th>
+			<th scope="col">Borrow Date</th>
+			<th scope="col">Expired Date</th>
+			<th scope="col">Button</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+			<th scope="row">Harry Potter</th>
+			<td>Clement</td>
+			<td>18/2/2019</td>
+			<td>18/3/2019</td>
+			<td><form><button type="button" onclick="javascript:awesomeClick();" class="btn btn-danger">Return</button></form></td>
+			</tr>
+			<tr>
+			<th scope="row">The Art</th>
+			<td>Ali</td>
+			<td>23/3/2019</td>
+			<td>23/4/2019</td>
+			<td><form><button type="button" onclick="javascript:awesomeClick();" class="btn btn-danger">Return</button></form></td>
+			</tr>
+			<tr>
+			<th scope="row">Becoming</th>
+			<td>Ali</td>
+			<td>23/3/2019</td>
+			<td>23/4/2019</td>
+			<td><form><button type="button" onclick="javascript:awesomeClick();" class="btn btn-danger">Return</button></form></td>
+			</tr>
+			<tr>
+			<th scope="row">Bad Blood</th>
+			<td>Ali</td>
+			<td>23/3/2019</td>
+			<td>23/4/2019</td>
+			<td><form><button type="button" onclick="javascript:awesomeClick();" class="btn btn-danger">Return</button></form></td>
+			</tr>
+			<tr>
+			<th scope="row">All The Light We Cannot See</th>
+			<td>Ali</td>
+			<td>23/3/2019</td>
+			<td>23/4/2019</td>
+			<td><form><button type="button" onclick="javascript:awesomeClick();" class="btn btn-danger">Return</button></form></td>
+			</tr>
+			<tr>
+			<th scope="row">A Princess In Theory</th>
+			<td>Ali</td>
+			<td>23/3/2019</td>
+			<td>23/4/2019</td>
+			<td><form><button type="button" onclick="javascript:awesomeClick();" class="btn btn-danger">Return</button></form></td>
+			</tr>
+			<tr>
+			<th scope="row">Ali Baba</th>
+			<td>See See Ting</td>
+			<td>1/4/2019</td>
+			<td>1/5/2019</td>
+			<td><form><button type="button" onclick="javascript:awesomeClick();" class="btn btn-danger">Return</button></form></td>
+			</tr>
+		</tbody>
+		</table>
+		<div class="float-right">
+		<i style=padding-top:10px>Select the returned book.</i><br>
+		</div>
+
+    </main>
+    <footer class="container text-center font-italic">
+        <hr>
+        Copyright &copy 2019 Biblio.com</br>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+	<script src="lending.js"></script>
+</body>
+
+</html>
