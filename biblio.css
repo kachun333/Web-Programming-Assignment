@@ -1,5 +1,5 @@
 #header {
-  
+
   width: 100%;
   height: 60px;
   background-color: #d66853;
@@ -329,6 +329,7 @@ footer {
 
 .body{
     height:100%;
+    font-family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif";
 }
 
 .edit-btn{
@@ -367,13 +368,13 @@ footer {
 }
 
 .table2{
-    position:relative; 
+    position:relative;
     width:60%;
     min-width:400px;
-    top:20px;   
+    top:20px;
     margin:auto;
     margin-bottom:50px;
-    border:1px lightgray solid; 
+    border:1px lightgray solid;
 }
 
 .float-left{
@@ -401,7 +402,7 @@ footer {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .wrapper input {
     border: 0;
     width: 1px;
@@ -412,13 +413,13 @@ footer {
     clip: rect(1px, 1px, 1px, 1px);
     opacity: 0;
   }
-  
+
   .wrapper label {
     position: relative;
     float: right;
     color: #C8C8C8;
   }
-  
+
   .wrapper label:before {
     margin: 5px;
     content: "\f005";
@@ -430,15 +431,15 @@ footer {
     -moz-user-select: none;
     user-select: none;
   }
-  
+
   .wrapper input:checked ~ label:before {
     color: #FFC107;
   }
-  
+
   .wrapper label:hover ~ label:before {
     color: #ffdb70;
   }
-  
+
   .wrapper label:hover:before {
     color: #FFC107;
   }
@@ -463,9 +464,45 @@ footer {
     resize: none;
   }
 
-  
+
   .editable{
     color:grey;
     border:1px grey solid;
   }
-  
+
+
+#canvas{
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#whole-page-boxes{
+  width: 90%;
+}
+
+#top1_booksize{
+  width: 100%;
+}
+
+#top10_booksize{
+  width: 30%;
+  padding-right: 10px;
+}
+
+.quadrant{
+  width: 40%;
+  float: left;
+}
+
+#div1 { width: 100%; float: left; background: #FF9F40; }
+#div2 { width: 100%; float: left; background: #36A2EB; }
+#div3 { width: 100%; float: left; background: #22CECE; }
+#div4 { width: 100%; float: left; background: #FF6384; }
+
+.counter{
+  font-size: 120px;
+  color: white;
+  float: left;
+  padding-left: 30px
+}
