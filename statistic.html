@@ -57,49 +57,44 @@
         </div>
     </nav>
     <main class="container">
+
         <div class="row">
             <div id="whole-page-boxes" class="inline boxes">
-                <h5>Graph Statistic</h5>
-                <canvas id="canvas"></canvas>
-            </div>
-
-        <div id="summary" class="row">
-          <div id="whole-page-boxes" class="inline boxes container">
-              <h5>Summary</h5>
-              <div class="quadrant">
-
-                <div id="div1">
+              <h1 class="row">Summary</h1>
+              <div class="row">
+                <div id="div1" class="quadrant">
                   <h5>Books Avaliable</h5>
                   <p id="counter1" class="counter">110</p>
                 </div>
-                  <div id="div2">
-                    <h5>Total Members</h5>
-                    <p id="counter2" class="counter">220</p>
-                  </div>
+                <div id="div2" class="quadrant">
+                  <h5>Total Members</h5>
+                  <p id="counter2" class="counter">220</p>
+                </div>
+                <div id="div3" class="quadrant">
+                  <h5>Books Loaned</h5>
+                  <p id="counter3" class="counter">330</p>
+                </div>
+                <div id="div4" class="quadrant">
+                  <h5>Books Overdue</h5>
+                  <p id="counter4" class="counter">440</p>
+                </div>
+            </div>
 
+
+              <div id="whole-page-boxes" class="inline boxes">
+                <h5>Graph Statistic</h5>
+                <canvas id="canvas"></canvas>
               </div>
-
-              <div class="quadrant">
-                  <div id="div3">
-                    <h5>Books Loaned</h5>
-                    <p id="counter3" class="counter">330</p>
-                  </div>
-                  <div id="div4">
-                    <h5>Books Overdue</h5>
-                    <p id="counter4" class="counter">440</p>
-                  </div>
-              </div>
-
-          </div>
+            </div>
         </div>
 
         <div class="row">
             <div id="whole-page-boxes" class="inline boxes">
-                <h5>Top 10 Most Frequently Loaned Book</h5>
-                <div class="quadrant">
+              <h5>Top 10 Most Frequently Loaned Book</h5>
+                <div class="quadrant" style="width: 35%">
                     <img id="top1_booksize" src="media/Books-Cover/book1.jpg" alt="Num 1">
                 </div>
-                <div class="quadrant">
+                <div class="quadrant" style="width: 55%">
                   <div>
                     <img id="top10_booksize" src="media/Books-Cover/book2.jpg" alt="Num 2">
                     <img id="top10_booksize" src="media/Books-Cover/book3.jpg" alt="Num 3">
@@ -124,11 +119,11 @@
         <div class="row">
           <div id="whole-page-boxes" class="inline boxes">
               <h5>Top 10 Active Members</h5>
-              <div class="quadrant">
+              <div class="quadrant" style="width: 35%">
                   <img id="top1_booksize" src="media/Books-Cover/user_icon.png" alt="Num 1">
               </div>
 
-              <div class="quadrant">
+              <div class="quadrant" style="width: 55%">
                 <div>
                   <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 2">
                   <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 3">
