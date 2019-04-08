@@ -586,9 +586,6 @@ margin-bottom:10px;
   display: inline-block;
   float: left;
   text-align: center;
-  margin: auto;
-  overflow:auto;
-  position: relative;
 }
 
 .topsize{
