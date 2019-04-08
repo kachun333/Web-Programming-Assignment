@@ -265,6 +265,7 @@ a:visited {
   position: relative;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 .row div {
@@ -286,6 +287,11 @@ footer {
   position:relative;
   top:25px;
 }
+
+.row div .dash-book-div{
+  margin:0;
+}
+
 
 
 /*book*/

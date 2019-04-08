@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="biblio.css">
 </head>
 
-<body>
+<body onresize="resize()" onload="resize()">
 
     <header id="header">
         <!--Menu Button-->
@@ -60,11 +60,13 @@
         <div class="row">
             <div id="new-book" class="inline boxes">
                 <h5>New book</h5>
-                <a href="bookSearch.html"><img src="media/add.png" class="op-1"></a>
-                <a href="bookinfo/theartofwar.html"><img src="media/theartofwar.jpg" class="dash-newbook"></a>
-                <img src="https://images-na.ssl-images-amazon.com/images/I/41Tfjy2712L._SX324_BO1,204,203,200_.jpg" class="dash-newbook">
-                <a href="bookinfo/killthemockingbird.html"><img src="https://images-na.ssl-images-amazon.com/images/I/71FxgtFKcQL.jpg" class="dash-newbook"></a>
-                <img src="https://kbimages1-a.akamaihd.net/ca35b0df-52d8-44cd-ad10-1d1ae7828317/1200/1200/False/harry-potter-and-the-philosopher-s-stone-3.jpg" class="dash-newbook">
+                <div class="dash-book-div" id="smallbox">
+                    <a href="bookSearch.html"><img src="media/add.png" class="op-1"></a>
+                    <a href="bookinfo/theartofwar.html"><img src="media/theartofwar.jpg" class="dash-newbook"></a>
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41Tfjy2712L._SX324_BO1,204,203,200_.jpg" class="dash-newbook">
+                    <a href="bookinfo/killthemockingbird.html"><img src="https://images-na.ssl-images-amazon.com/images/I/71FxgtFKcQL.jpg" class="dash-newbook"></a>
+                    <img src="https://kbimages1-a.akamaihd.net/ca35b0df-52d8-44cd-ad10-1d1ae7828317/1200/1200/False/harry-potter-and-the-philosopher-s-stone-3.jpg" class="dash-newbook">
+                </div>
             </div>
 
             <div id="stats" class="inline boxes">
@@ -101,6 +103,17 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script>
+    
+    function resize(){
+			var box = document.querySelector("#new-book");
+            var smallbox = document.querySelector("#smallbox");
+            // console.log(box.offsetHeight);
+            // console.log(smallbox.offsetHeight);
+            box.style.height = smallbox.offsetHeight + 100 +'px';
+			
+
+		}</script>
 </body>
 
 </html>
