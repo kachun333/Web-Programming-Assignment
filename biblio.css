@@ -279,7 +279,13 @@ footer {
   margin-bottom: 20px;
 }
 
-
+.dash-newbook{
+  width:120px;
+  height:176px;
+  margin:15px;
+  position:relative;
+  top:25px;
+}
 
 
 /*book*/
