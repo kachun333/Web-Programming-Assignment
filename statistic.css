@@ -27,7 +27,7 @@ hr{
 .quadrant{
   display: inline-block;
 	left;
-  /*text-align: center;*/
+  border-radius: 3px;
 	color: white;
 }
 
