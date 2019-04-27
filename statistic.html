@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
     <link rel="stylesheet" href="biblio.css">
+    <link rel="stylesheet" href="statistic.css">
 </head>
 
 <body>
@@ -33,7 +34,7 @@
         </div>
     </header>
 
-    <nav class="navigation">
+    <nav class="navigation" style="margin-bottom:20px">
         <div>
             <ul>
                 <li class="navigation-item active">
@@ -58,109 +59,100 @@
         </div>
     </nav>
     <main class="container">
-
-        <div class="row">
-            <div id="whole-page-boxes" class="inline boxes">
-              <h1 class="row">Summary</h1>
-              <div class="row">
-                <div id="div1" class="quadrant">
-                  <h5>Books Avaliable</h5>
-                  <h6 id="counter1" class="counter">110</h6>
-                </div>
-                <div id="div2" class="quadrant">
-                  <h5>Total Members</h5>
-                  <h6 id="counter2" class="counter">220</h6>
-                </div>
-                <div id="div3" class="quadrant">
-                  <h5>Books Loaned</h5>
-                  <h6 id="counter3" class="counter">330</h6>
-                </div>
-                <div id="div4" class="quadrant">
-                  <h5>Books Overdue</h5>
-                  <h6 id="counter4" class="counter">440</h6>
-                </div>
-            </div>
-
-
-              <div id="whole-page-boxes" class="inline boxes">
-                <h5>Graph Statistic</h5>
-                <canvas id="canvas"></canvas>
-              </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div id="whole-page-boxes" class="inline boxes">
-              <h5>Top 10 Most Frequently Loaned Book</h5>
-                <div class="quadrant" style="width: 35%">
-                    <img id="top1_booksize" src="media/Books-Cover/book1.jpg" alt="Num 1">
-                </div>
-                <div class="quadrant" style="width: 55%">
-                  <div>
-                    <img id="top10_booksize" src="media/Books-Cover/book2.jpg" alt="Num 2">
-                    <img id="top10_booksize" src="media/Books-Cover/book3.jpg" alt="Num 3">
-                    <img id="top10_booksize" src="media/Books-Cover/book4.jpg" alt="Num 4">
-                  </div>
-
-                  <div>
-                    <img id="top10_booksize" src="media/Books-Cover/book5.jpg" alt="Num 5">
-                    <img id="top10_booksize" src="media/Books-Cover/book6.jpg" alt="Num 6">
-                    <img id="top10_booksize" src="media/Books-Cover/book7.jpg" alt="Num 7">
-                  </div>
-
-                  <div>
-                    <img id="top10_booksize" src="media/Books-Cover/book8.jpg" alt="Num 8">
-                    <img id="top10_booksize" src="media/Books-Cover/book9.jpg" alt="Num 9">
-                    <img id="top10_booksize" src="media/Books-Cover/book10.jpg" alt="Num 10">
-                  </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-          <div id="whole-page-boxes" class="inline boxes">
-              <h5>Top 10 Active Members</h5>
-              <div class="quadrant" style="width: 35%">
-                  <img id="top1_booksize" src="media/Books-Cover/user_icon.png" alt="Num 1">
-              </div>
-
-              <div class="quadrant" style="width: 55%">
-                <div>
-                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 2">
-                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 3">
-                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 4">
-                </div>
-
-                <div>
-                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 5">
-                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 6">
-                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 7">
-                </div>
-
-                <div>
-                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 8">
-                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 9">
-                  <img id="top10_booksize" src="media/Books-Cover/user_icon.png" alt="Num 10">
-                </div>
-              </div>
+      <div class="alert alert-warning" role="alert">
+        <h2>Statistics</h2>
+      </div>
+      <div class="boxes center">
+        <hr style="margin-top:0px">
+          <div id="div1" class="quadrant">
+            <h6>Books Avaliable</h6>
+            <h1 id="counter1">110</h1>
           </div>
-        </div>
-
-        <div class="row">
-            <div class="boxes-2 inline">
+          <div id="div2" class="quadrant">
+            <h6>Total Members</h6>
+            <h1 id="counter2">220</h1>
+          </div>
+          <div id="div3" class="quadrant center">
+            <h6>Books Loaned</h6>
+            <h1 id="counter3">330</h1>
+          </div>
+          <div id="div4" class="quadrant">
+            <h6>Books Overdue</h6>
+            <h1 id="counter4">440</h1>
+          </div>
+        <hr>
+          <div>
+            <h5>Graph Statistic</h5>
+            <canvas id="canvas"></canvas>
+          </div>
+        <hr>
+          <div>
+            <h5>Top 5 Most Active Members</h5>
+            <figure class="figure">
+              <img id="membersize" src="media/johndoe.png" class="figure-img img-fluid">
+              <figcaption class="figure-caption">#1 - Chan Ka Chun</figcaption>
+            </figure>
+            <div>
+              <figure class="figure">
+                <img id="membersize" src="media/johndoe.png" class="figure-img img-fluid">
+                <figcaption class="figure-caption">#2 - Chan Ka Chun</figcaption>
+              </figure>
+              <figure class="figure">
+                <img id="membersize" src="media/johndoe.png" class="figure-img img-fluid">
+                <figcaption class="figure-caption">#3 - Chan Ka Chun</figcaption>
+              </figure>
+              <figure class="figure">
+                <img id="membersize" src="media/johndoe.png" class="figure-img img-fluid">
+                <figcaption class="figure-caption">#4 - Chan Ka Chun</figcaption>
+              </figure>
+              <figure class="figure">
+                <img id="membersize" src="media/johndoe.png" class="figure-img img-fluid">
+                <figcaption class="figure-caption">#5 - Chan Ka Chun</figcaption>
+              </figure>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <h5>Top 5 Most Frequently Loaned Book</h5>
+            <figure class="figure">
+              <img id="top10_booksize" src="media/Books-Cover/book2.jpg" class="figure-img img-fluid">
+              <figcaption class="figure-caption">#1</figcaption>
+            </figure>
+            <div>
+              <figure class="figure">
+                <img id="top10_booksize" src="media/Books-Cover/book2.jpg" class="figure-img img-fluid">
+                <figcaption class="figure-caption">#2</figcaption>
+              </figure>
+              <figure class="figure">
+                <img id="top10_booksize" src="media/Books-Cover/book2.jpg" class="figure-img img-fluid">
+                <figcaption class="figure-caption">#3</figcaption>
+              </figure>
+              <figure class="figure">
+                <img id="top10_booksize" src="media/Books-Cover/book2.jpg" class="figure-img img-fluid">
+                <figcaption class="figure-caption">#4</figcaption>
+              </figure>
+              <figure class="figure">
+                <img id="top10_booksize" src="media/theartofwar.jpg" class="figure-img img-fluid">
+                <figcaption class="figure-caption">#5</figcaption>
+              </figure>
+            </div>
+          </div>
+        <hr>
+        <div class="rowe">
+            <div class="column">
                 <h5>Genre of Books Own</h5>
                 <canvas id="chart-area"></canvas>
             </div>
 
-            <div class="boxes-2 inline">
+            <div class="column">
               <h5>Genre of Books Loaned Out</h5>
               <canvas id="chart-area2"></canvas>
             </div>
         </div>
-
-
+        <hr>
+      </div>
     </main>
-    <footer class="text-center font-italic">
+    <footer class="center font-italic">
         <hr>
         Copyright &copy 2019 Biblio.com</br>
     </footer>
