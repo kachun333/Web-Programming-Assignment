@@ -12,21 +12,22 @@ CREATE TABLE Users (
 
 
 CREATE TABLE Books (
-    ISBN INT NOT NULL,
+    ISBN VARCHAR(255) NOT NULL,
     Title VARCHAR(50) NOT NULL,
     Author VARCHAR(50) NOT NULL,
     Genre VARCHAR (50),
+    BookLanguage VARCHAR(32),
     PublishedDate DATE NOT NULL,
     Publisher VARCHAR(50) NOT NULL,
     BookDescription VARCHAR(255),
     Pages INT,
-    BookCover INT,
+    BookCover VARCHAR(255),
     CONSTRAINT PK_Book PRIMARY KEY(ISBN)
 );
 
 CREATE TABLE Owned (
     UserID INT NOT NULL,
-    ISBN INT NOT NULL,
+    ISBN VARCHAR(255) NOT NULL,
     Copies int,
     CreatedDate DATE NOT NULL,
     Review VARCHAR(255),
@@ -52,7 +53,7 @@ CREATE TABLE Members (
 
 CREATE TABLE BookTransactions (
     TransactionID INT NOT NULL,
-    ISBN INT NOT NULL,
+    ISBN VARCHAR(255) NOT NULL,
     MemberID VARCHAR(50) NOT NULL,
     BorrowDate DATE NOT NULL,
     ReturnDate DATE NOT NULL,

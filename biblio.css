@@ -375,9 +375,7 @@ font-size: 16px;
 padding: 12px 20px 12px 40px;
 border: 1px solid #ddd;
 margin-bottom: 12px;
-position: relative;
-top:-70px;
-left: -100px;
+
 }
 
 #myInput2 {
@@ -426,10 +424,19 @@ margin-bottom:10px;
     font-family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif";
 }
 
-.edit-btn{
+.bookinfo-title{
+  float:left;
+  margin-left:20px;
+}
+
+#btn-div{
+  float:right;
   position: relative;
-  top:-10px;
-  right:50px;
+  right:10px;
+  top:-50px;
+}
+
+.edit-btn{
   background-color: #d66853;
   color: white;
   width: 100px;
@@ -437,47 +444,28 @@ margin-bottom:10px;
   border-radius: 10px;
   border:none;
   padding:5px 0 5px 0;
-  float:right;
   margin:10px;
-}
-.table-attr{
-    width:30%;
-    border-right:1px lightgrey solid;
-    text-align:right;
-    padding-right:50px;
-    font-weight: bold;
 }
 
 .book-left{
-    position: relative;
-    float:left;
-    top:70px;
-    width:250px;
+  position: relative;
+  float: left;
+  width: 250px;
+  padding:10px;
 }
 
-#book-dtl-title{
-    position:relative;
-    top:30px;
-    width:300px;
+.book-boxes {
+  border-radius: 25px;
+  padding: 30px;
+  position: relative;
+  background-color: rgb(230, 230, 230);
 }
 
-.table2{
-    position:relative;
-    width:60%;
-    min-width:400px;
-    top:20px;
-    margin:auto;
-    margin-bottom:50px;
-    border:1px lightgray solid;
+.top{
+  overflow:hidden;
+  width:100%;
+  padding-top:10px;
 }
-
-.float-left{
-    position: relative;
-    float:left;
-    top:70px;
-    left:100px;
-}
-
 
 .book-img{
   object-fit: scale-down;
@@ -485,6 +473,51 @@ margin-bottom:10px;
   left:30px;
   width: 185px;
   height: 250px;
+}
+
+#description p{
+  margin:30px 80px 50px 50px;
+  width:60%;
+  height:250px;
+  border:none;
+  float:right;
+}
+
+#description h3{
+  float:right;
+}
+
+.bottom, .review{
+  border-top: 1px solid grey;
+  padding:30px 10px 30px 20px;
+}
+
+.bottom h4{
+  margin-left:50px;
+}
+
+.table2{
+  margin:20px auto auto 10%;
+  width:85%;
+}
+
+.review p{
+  margin:auto 50px auto 50px;
+}
+
+.table2 tbody tr td{
+ padding:5px;
+}
+
+.table-attr{
+font-weight:bold;
+width:180px;
+vertical-align: top;
+}
+
+.review h4{
+ margin-left:50px;
+ margin-bottom:20px;
 }
 
 .wrapper {
@@ -542,28 +575,12 @@ margin-bottom:10px;
     position: relative;
   }
 
-  .text{
-    border:none;
-    padding-left:10px;
-    width:100%;
-    height:30px;
-    outline: none;
-  }
-
-  .text2{
-    width:100%;
-    border:none;
-    padding:10px;
-    outline: none;
-    resize: none;
-  }
-
-
   .editable{
     color:grey;
     border:1px grey solid;
   }
 
+  
 
 /*stats for members*/
 .vertical .progress-bar {
