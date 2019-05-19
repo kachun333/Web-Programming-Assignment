@@ -3,8 +3,8 @@
 
     $isbn = '9781400069286';
     $query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN";
-    $data = $conn -> query($query);
-    $result = $data -> fetch(PDO::FETCH_ASSOC);
+    $data = mysqli_query($conn,$query);
+    $result = mysqli_fetch_assoc($data);
 
     $isbn = $result['ISBN'];
     $title = $result['Title'];

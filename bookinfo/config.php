@@ -1,16 +1,12 @@
 <?php
 
-try{
-    $connString = "mysql:host=localhost;dbname=biblio";
+    $servername = "localhost";
+    $dbname = "biblio";
     $user = "user";
     $pword = "user123";
 
-    $conn = new PDO ($connString, $user, $pword);
-    $conn-> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e){
-    die($e->getMessage());
-}    
-
-
+    $conn = mysqli_connect($servername, $user, $pword,$dbname);
+    if(!$conn){
+        die("Connection failed:".mysqli_connect_error());
+    }
 ?>
