@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
   <link rel="stylesheet" href="biblio.css">
-
   <style>
     .container{
       display: flex;
@@ -66,12 +65,79 @@
       </ul>
     </div>
   </nav>
-  <div class="row">
+  <div class="container-fluid">
+        <br><br>
+        <h3 align="center"><em>Search Online by ISBN</em></h3><br>
+        <form method="get" id="searchBookForm">
+          <div class="form-row justify-content-center">
+            <div class="col-3">
+              <input id="searchISBN" type="search" class="form-control" placeholder="Type in ISBN...">
+            </div>
+            <div class="col-2">
+              <button type="submit" id="submitSearch" class="btn btn-danger">Submit</button>
+            </div>
+          </div>
+        </form>
+  </div>
+  <br><br>
+
+  <h4 align="center" style="color: grey;"><em>or<em></h4>
+  <hr style="width: 85%">
+  <br>
+  <h3 align="center"><em>Register Book Manually</em></h3>
+  <br>
   <form>
-    <div class="float-none">
-      <input type="text" id="myInput2" class="form-control"  placeholder="Type in Book ISBN" title="Type in name" aria-label="Search" size="30"> &nbsp;
+    <div class="container-fluid">
+
+    <div class="form-group form-row justify-content-center">
+      <label for="Title" class="col-1 col-form-label">Title</label>
+      <div class="col-3">
+        <input type="text" class="form-control" id="Title" placeholder="Title of The Book">
+      </div>
     </div>
-    </form>
+    <div class="form-group form-row justify-content-center">
+      <label for="Author" class="col-1 col-form-label">Author</label>
+      <div class="col-3">
+        <input type="text" class="form-control" id="Author" placeholder="Author of The Book">
+      </div>
     </div>
+    <div class="form-group form-row justify-content-center">
+      <label for="Edition" class="col-1 col-form-label">Edition</label>
+      <div class="col-3">
+        <input type="text" class="form-control" id="Edition" placeholder="Edition of The Book">
+      </div>
+    </div>
+    <div class="form-group form-row justify-content-center">
+      <label for="ISBN_13" class="col-1 col-form-label">ISBN 13</label>
+      <div class="col-3">
+        <input type="text" class="form-control" id="ISBN_13" placeholder="ISBN of The Book">
+      </div>
+    </div>
+    <div class="form-group form-row justify-content-center">
+      <label for="Year" class="col-1 col-form-label">Year of Publication</label>
+      <div class="col-3">
+        <input type="text" class="form-control" id="Year" placeholder="Year of Publication of The Book">
+      </div>
+    </div>
+    <div class="form-group form-row justify-content-center">
+      <label for="Publisher" class="col-1 col-form-label">Publisher</label>
+      <div class="col-3">
+        <input type="text" class="form-control" id="Publisher" placeholder="Publisher of The Book">
+      </div>
+    </div>
+    <div class="form-group form-row justify-content-center">
+      <label for="Pages" class="col-1 col-form-label">Pages</label>
+      <div class="col-3">
+        <input type="text" class="form-control" id="Pages" placeholder="Amount of Pages in The Book">
+      </div>
+    </div>
+    <br>
+    <div class="form-group form-row justify-content-center">
+        <button type="submit" id="submitSearch" class="btn btn-danger">Submit</button>
+    </div>
+  </div><br><br>
+  </form>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="bookSearchJS.js"></script>
   </body>
   </html>
