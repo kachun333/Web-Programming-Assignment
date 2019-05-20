@@ -1,7 +1,8 @@
 <?php 
     include 'config.php';
 
-    $isbn = '9781400069286';
+    $isbn = $_GET['isbn'];
+    //$isbn = '9781400069286';
     $query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN";
     $data = mysqli_query($conn,$query);
     $result = mysqli_fetch_assoc($data);
@@ -89,7 +90,7 @@
         <div class="alert alert-warning" role="alert">
             <h2>Book Details</h2>
             <div id="btn-div">
-                <button class="edit-btn">Edit</button>
+                <?php echo "<a href='editinfo.php?isbn=$isbn'><button class='edit-btn'>Edit</button></a>";?>
                 <button class="edit-btn" onclick="goBack()">Back</button>
             </div>
         </div>
@@ -151,7 +152,7 @@
                 </tr>
                 <tr>
                     <td class="table-attr">Publisher</td>
-                    <td><?php echo $publisher;?>g</td>
+                    <td><?php echo $publisher;?></td>
                 </tr>
                 <tr>
                     <td class="table-attr">Pages</td>
