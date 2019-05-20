@@ -23,7 +23,7 @@
 ?>
 
 <head>
-    <title>Dashboard - Biblio</title>
+    <title><?php echo "Biblio - ".$title?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -32,9 +32,6 @@
     <link rel="stylesheet" href="..\biblio.css">
     <style>
 
-        .container {
-            padding-top:20px;
-        }
         #header, .navigation, footer{
             min-width:600px;
         }        
@@ -87,12 +84,12 @@
             </ul>
         </div>
     </nav>
-    <main class="container">
+    <main class="container alert-top">
 
         <div class="alert alert-warning" role="alert">
             <h2>Book Details</h2>
             <div id="btn-div">
-                <button class="edit-btn" id="edit">Edit</button>
+                <button class="edit-btn">Edit</button>
                 <button class="edit-btn" onclick="goBack()">Back</button>
             </div>
         </div>
@@ -142,11 +139,7 @@
                 </tr>
                 <tr>
                     <td class="table-attr">Genre</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="table-attr">Edition</td>
-                    <td></td>
+                    <td><?php echo $genre;?></td>
                 </tr>
                 <tr>
                     <td class="table-attr">ISBN</td>
@@ -184,7 +177,7 @@
     </main>
     <footer class="text-center font-italic">
         <hr>
-        Copyright &copy 2019 Biblio.com</br>
+        Copyright &copy 2019 Biblio.com<br>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

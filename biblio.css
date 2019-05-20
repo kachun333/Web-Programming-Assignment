@@ -45,7 +45,9 @@ a:visited {
   text-decoration: none;
 }
 
-
+.alert-top{
+  padding-top : 20px;
+}
 
 /*Preview page*/
 #preview {
@@ -432,7 +434,6 @@ margin-bottom:10px;
 #btn-div{
   float:right;
   position: relative;
-  right:10px;
   top:-50px;
 }
 
@@ -444,7 +445,7 @@ margin-bottom:10px;
   border-radius: 10px;
   border:none;
   padding:5px 0 5px 0;
-  margin:10px;
+  margin:10px 5px 10px 5px;
 }
 
 .book-left{
@@ -478,7 +479,7 @@ margin-bottom:10px;
 #description p{
   margin:30px 80px 50px 50px;
   width:60%;
-  height:250px;
+  min-height:250px;
   border:none;
   float:right;
 }
@@ -580,7 +581,16 @@ vertical-align: top;
     border:1px grey solid;
   }
 
-  
+/*Edit book info*/
+#editinfo input, #editinfo textarea{
+  width:90%;
+}
+
+#edit {
+  float:right;
+  position:relative;
+  right:5%;
+}
 
 /*stats for members*/
 .vertical .progress-bar {
