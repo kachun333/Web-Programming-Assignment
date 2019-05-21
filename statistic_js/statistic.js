@@ -1,11 +1,11 @@
 window.onload = function() {
   //graph
   var ctx1 = document.getElementById('canvas').getContext('2d');
+  window.myPie = new Chart(ctx1, config1);
   var ctx2 = document.getElementById('chart-area').getContext('2d');
+  window.myPie = new Chart(ctx2, config2);
   var ctx3 = document.getElementById('chart-area2').getContext('2d');
-  window.myLine = new Chart(ctx1, config1);
-  window.myPie = new Chart(ctx2, config2)
-  window.myPie = new Chart(ctx3, config3)
+  window.myPie = new Chart(ctx3, config3);
 
   var cnt1 = new CountUp('counter1', 0, document.getElementById("counter1").textContent);
   var cnt2 = new CountUp('counter2', 0, document.getElementById("counter2").textContent);
@@ -15,7 +15,26 @@ window.onload = function() {
   cnt2.start();
   cnt3.start();
   cnt4.start();
+
+    getError();
 };
+
+
+function getError() {
+
+var check = document.getElementById('3Y');
+
+check.onclick = function() {
+  alert("Data is not available for 3 years");
+}
+}
+
+var mysql = require('mysql');
+var connect = mysql.createConnection({
+  host: "",
+  user: "",
+  password: ""
+});
 
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -27,9 +46,7 @@ var config1 = {
       label: 'Books Own',
       backgroundColor: window.chartColors.red,
       borderColor: window.chartColors.red,
-      data: [
-        5, 10, 20, 40, 50, 70,100
-      ],
+      data: data1,
       fill: false,
     }, {
       label: 'Loans Activity',

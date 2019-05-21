@@ -59,3 +59,31 @@ hr{
 #div2 {     width: 20%; background: #36A2EB; }
 #div3 {     width: 20%; background: #22CECE; }
 #div4 {     width: 20%; background: #FF6384; }
+
+.dropbtn{
+  background-color: #FF9F40;
+  width: 80px;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 80px;
+}
+
+.dropdown-content a{
+  display:block;
+  color:black;
+}
+
+.dropdown{
+  position:relative;
+  display: inline-block;
+  float: right;
+}
+
+
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #e07d1a;}

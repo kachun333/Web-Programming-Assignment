@@ -1,0 +1,25 @@
+
+#canvas{
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#whole-page-boxes{
+  width: 90%;
+}
+
+#top10_booksize{
+  width: 10%;
+  padding-right: 10px;
+}
+
+#div1 { width: 50%; height: 50%; float: left; background: #DDD; }
+#div2 { width: 50%; height: 50%; float: left; background: #AAA; }
+#div3 { width: 50%; height: 50%; float: left; background: #777; }
+#div4 { width: 50%; height: 50%; float: left; background: #444; }
+
+yellow = #FFCD56
+orange = #FF9F40
+red = #FF6384
+green = #4BC0C0

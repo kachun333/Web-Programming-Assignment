@@ -3,7 +3,7 @@
     $servername = "localhost";
     $dbname = "biblio";
     $user = "user";
-    $pword = "user123";
+    $pword = "user12345";
 
     $conn = mysqli_connect($servername, $user, $pword,$dbname);
     if(!$conn){
