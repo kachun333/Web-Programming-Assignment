@@ -46,7 +46,7 @@ a:visited {
 }
 
 .alert-top{
-  padding-top : 20px;
+  margin-top : 20px;
 }
 
 /*Preview page*/
@@ -411,9 +411,16 @@ border-bottom: 1px solid #ddd;
 #myTable tr.header, #myTable tr:hover {
 background-color: #f1f1f1;
 }
+
 #add-book-btn{
 float: right;
 margin-right: 50px;
+margin-bottom:10px;
+}
+
+#add-book{
+float: right;
+margin-right: 52px;
 margin-bottom:10px;
 }
 
@@ -432,7 +439,7 @@ margin-bottom:10px;
 #btn-div{
   float:right;
   position: relative;
-  top:-50px;
+  top:-8px;
 }
 
 .edit-btn{
@@ -589,6 +596,13 @@ vertical-align: top;
   position:relative;
   right:5%;
 }
+
+/*Member*/
+
+.alert > h2{
+  display:inline;
+}
+
 
 /*stats for members*/
 .vertical .progress-bar {

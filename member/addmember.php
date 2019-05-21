@@ -16,7 +16,7 @@
 
     <?php include '../header.php'?>
 
-    <main class="container-fluid">
+    <main class="container-fluid alert-top">
         <h3 align="center"><em>Register Members</em></h3>
         <br>
         <form method="POST" action="addmemberprocess.php">

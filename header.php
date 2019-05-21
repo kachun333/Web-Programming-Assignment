@@ -1,4 +1,4 @@
-<header id="header">
+ <header id="header">
         <!--Menu Button-->
         <a id="biblio" href="index.php">
             <h2>Biblio</h2>
@@ -33,10 +33,10 @@
                 </li>
 
                 <li class="navigation-item">
-                    <a href="../member.html">MEMBER</a>
+                    <a href="member.php">MEMBER</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="../statistic.html">STATISTIC</a>
+                    <a href="../statistic.php">STATISTIC</a>
                 </li>
             </ul>
         </div>

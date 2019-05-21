@@ -71,10 +71,10 @@ $review =$result['Review'];
             </li>
 
             <li class="navigation-item">
-                <a href="#">MEMBER</a>
+                <a href="../member/member.php">MEMBER</a>
             </li>
             <li class="navigation-item">
-                <a href="../statistic.html">STATISTIC</a>
+                <a href="../statistic.pgp">STATISTIC</a>
             </li>
         </ul>
     </div>

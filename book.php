@@ -20,9 +20,6 @@ $result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using my
         crossorigin="anonymous">
     <link rel="stylesheet" href="biblio.css">
     <style>
-    .container {
-            padding-top:20px;
-        }
         #header, .navigation, footer{
             min-width:600px;
         }    
@@ -66,10 +63,10 @@ $result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using my
                 </li>
 
                 <li class="navigation-item">
-                    <a href="member.html">MEMBER</a>
+                    <a href="member/member.php">MEMBER</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="statistic.html">STATISTIC</a>
+                    <a href="statistic.php">STATISTIC</a>
                 </li>
 
             </ul>
@@ -78,7 +75,7 @@ $result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using my
 	
 
 	
-    <main class="container" >
+    <main class="container alert-top" >
    
   <form id="category" action="search.php" method="POST" >
 
