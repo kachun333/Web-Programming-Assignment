@@ -1,9 +1,9 @@
 <?php 
-    include 'config.php';
+    include '../config.php';
 
     $isbn = $_GET['isbn'];
     //$isbn = '9781400069286';
-    $query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN";
+    $query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN WHERE books.ISBN=$isbn";
     $data = mysqli_query($conn,$query);
     $result = mysqli_fetch_assoc($data);
 
@@ -44,7 +44,7 @@
 
     <header id="header">
         <!--Menu Button-->
-        <a id="biblio" href="index.html">
+        <a id="biblio" href="index.php">
             <h2>Biblio</h2>
         </a>
 
@@ -66,10 +66,10 @@
         <div>
             <ul>
                 <li class="navigation-item active">
-                    <a href="../index.html">DASHBOARD</a>
+                    <a href="../index.php">DASHBOARD</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="../book.html">BOOKS</a>
+                    <a href="../book.php">BOOKS</a>
                 </li>
 
                 <li class="navigation-item">
@@ -77,7 +77,7 @@
                 </li>
 
                 <li class="navigation-item">
-                    <a href="#">MEMBER</a>
+                    <a href="../member.html">MEMBER</a>
                 </li>
                 <li class="navigation-item">
                     <a href="../statistic.html">STATISTIC</a>
@@ -91,7 +91,7 @@
             <h2>Book Details</h2>
             <div id="btn-div">
                 <?php echo "<a href='editinfo.php?isbn=$isbn'><button class='edit-btn'>Edit</button></a>";?>
-                <button class="edit-btn" onclick="goBack()">Back</button>
+                <a href="../book.php"><button class="edit-btn">Back</button></a>
             </div>
         </div>
 

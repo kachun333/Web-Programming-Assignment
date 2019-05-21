@@ -1,5 +1,8 @@
 <?php 
-    include 'bookinfo/config.php';
+    include 'config.php';
+
+    $sql = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN WHERE UserId='1' ORDER BY owned.CreatedDate DESC LIMIT 4";
+    $result = mysqli_query($conn,$sql);
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +48,7 @@
                     <a href="#">DASHBOARD</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="book.html">BOOKS</a>
+                    <a href="book.php">BOOKS</a>
                 </li>
 
                 <li class="navigation-item">
@@ -69,20 +72,27 @@
                 <h5>New book</h5>
                 <div class="dash-book-div" id="smallbox">
                     <a href="bookSearch.html"><img src="media/add.png" class="op-1"></a>
-                    <a href="bookinfo/theartofwar.html"><img src="media/theartofwar.jpg" class="dash-newbook"></a>
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41Tfjy2712L._SX324_BO1,204,203,200_.jpg" class="dash-newbook">
-                    <a href="bookinfo/killthemockingbird.html"><img src="https://images-na.ssl-images-amazon.com/images/I/71FxgtFKcQL.jpg" class="dash-newbook"></a>
-                    <img src="https://kbimages1-a.akamaihd.net/ca35b0df-52d8-44cd-ad10-1d1ae7828317/1200/1200/False/harry-potter-and-the-philosopher-s-stone-3.jpg" class="dash-newbook">
+                    <?php 
+                        if(mysqli_num_rows($result)>0){
+                            while($row = mysqli_fetch_assoc($result)) {
+                                echo "<a href='bookinfo/bookinfo.php?isbn=".$row["ISBN"]."'><img src=".$row['BookCover']." class='dash-newbook'></a>";
+                            }
+                        }
+                    ?>
                 </div>
             </div>
 
             <div id="stats" class="inline boxes">
                 <h5>Total</h5>
-                <h3>100</h2><br>
-                    <h5>Checkouts</h5>
-                    <h3>30</h3><br>
-                    <h5>Overdue</h5>
-                    <h3>5</h3>
+                <?php 
+                $query = "SELECT * FROM owned WHERE UserId='1'";
+                $data = mysqli_query($conn,$query);
+                $numbooks = mysqli_num_rows($data);
+                echo "<h3>".$numbooks."</h3>"?><br>
+                <h5>Checkouts</h5>
+                <h3>30</h3><br>
+                <h5>Overdue</h5>
+                <h3>5</h3>
             </div>
         </div>
         <div class="row">
@@ -101,7 +111,7 @@
     </main>
     <footer class="text-center font-italic">
         <hr>
-        Copyright &copy 2019 Biblio.com</br>
+        Copyright &copy 2019 Biblio.com<br>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

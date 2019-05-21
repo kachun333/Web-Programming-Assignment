@@ -4,7 +4,7 @@ include_once("config.php");
 
 //fetching data in descending order (lastest entry first)
 //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
-$result = mysqli_query($mysqli, "SELECT * FROM book ORDER BY Title"); // using mysqli_query instead
+$result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using mysqli_query instead
 
 
 
@@ -38,7 +38,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM book ORDER BY Title"); // using m
 
     <header id="header">
         <!--Menu Button-->
-        <a id="biblio" href="index.html">
+        <a id="biblio" href="index.php">
             <h2>Biblio</h2>
         </a>
 
@@ -60,7 +60,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM book ORDER BY Title"); // using m
         <div>
             <ul>
                 <li class="navigation-item">
-                    <a href="index.html">DASHBOARD</a>
+                    <a href="index.php">DASHBOARD</a>
                 </li>
                 <li class="navigation-item active">
                     <a href="book.php">BOOKS</a>
@@ -122,8 +122,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM book ORDER BY Title"); // using m
     }
 
 
-    $query = "SELECT BookCover,Author,Title,ISBN FROM book WHERE $searchtype like ?";
-    $stmt = $mysqli->prepare($query);
+    $query = "SELECT BookCover,Author,Title,ISBN FROM books WHERE $searchtype like ?";
+    $stmt = $conn->prepare($query);
     $stmt->bind_param('s', $searchterm);  //s stand for string
     $stmt->execute();
     $stmt->store_result(); //to store the results
@@ -134,7 +134,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM book ORDER BY Title"); // using m
 
     while($stmt->fetch()) {
 		echo "<tr>";
-		echo "<td>" ?> <img src="<?php echo $BookCover ?>" height = "120" width = "120"> <?php echo"</td>";
+		echo "<td>" ?> <img src="<?php echo $BookCover ?>" class="book-cover-search"> <?php echo"</td>";
 		echo "<td>" .$ISBN."</td>";
 		echo "<td>".$title."</td>";
 		echo "<td>".$author."</td>";
@@ -144,7 +144,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM book ORDER BY Title"); // using m
     }
 
     $stmt->free_result();
-    $mysqli->close();
+    $conn->close();
   ?>
 	
 	

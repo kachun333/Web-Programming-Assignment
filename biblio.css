@@ -352,9 +352,7 @@ footer {
   border-color: #A40000;
   object-fit: fill;
 }
-#booksearchID{
 
-}
 .book-cover-search{
   width: 150px;
   height: auto;
@@ -415,7 +413,7 @@ background-color: #f1f1f1;
 }
 #add-book-btn{
 float: right;
-margin-right: 80px;
+margin-right: 50px;
 margin-bottom:10px;
 }
 

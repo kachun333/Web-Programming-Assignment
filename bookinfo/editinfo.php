@@ -1,8 +1,8 @@
 <?php 
-include 'config.php';
+include '../config.php';
 
 $isbn = $_GET['isbn'];
-$query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN";
+$query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN WHERE books.ISBN=$isbn";
 $data = mysqli_query($conn,$query);
 $result = mysqli_fetch_assoc($data);
 
@@ -10,7 +10,7 @@ $isbn = $result['ISBN'];
 $title = $result['Title'];
 $author = $result['Author'];
 $genre = $result['Genre'];
-$pubishDate = $result['PublishedDate'];
+$publishDate = $result['PublishedDate'];
 $publisher = $result['Publisher'];
 $desc = $result['BookDescription'];
 $pages = $result['Pages'];
@@ -38,7 +38,7 @@ $review =$result['Review'];
 
 <header id="header">
     <!--Menu Button-->
-    <a id="biblio" href="index.html">
+    <a id="biblio" href="index.php">
         <h2>Biblio</h2>
     </a>
 
@@ -60,10 +60,10 @@ $review =$result['Review'];
     <div>
         <ul>
             <li class="navigation-item active">
-                <a href="../index.html">DASHBOARD</a>
+                <a href="../index.php">DASHBOARD</a>
             </li>
             <li class="navigation-item">
-                <a href="../book.html">BOOKS</a>
+                <a href="../book.php">BOOKS</a>
             </li>
 
             <li class="navigation-item">
@@ -108,7 +108,7 @@ $review =$result['Review'];
             </tr>
             <tr>
                 <td class="table-attr">Published Date</td>
-                <td><input name="pubdate" class="form-control" type=date value="<?php echo $pubishDate;?>"></td>
+                <td><input name="pubdate" class="form-control" type=date value="<?php echo $publishDate;?>"></td>
             </tr>
             <tr>
                 <td class="table-attr">Publisher</td>
@@ -124,7 +124,7 @@ $review =$result['Review'];
             </tr>
             <tr>
                 <td class="table-attr">Created Date</td>
-                <td><input name="credate" class="form-control" type=date value="<?php echo $created;?>"></td>
+                <td><input name="credate" class="form-control" type=timestamp value="<?php echo $created;?>"></td>
             </tr>
             <tr>
                 <td class="table-attr">Description</td>

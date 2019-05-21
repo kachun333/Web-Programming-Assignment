@@ -5,15 +5,8 @@ include_once("config.php");
 //fetching data in descending order (lastest entry first)
 //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
 //for displaying all books
-$result = mysqli_query($mysqli, "SELECT * FROM book ORDER BY Title"); // using mysqli_query instead
-
-
-
-
+$result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using mysqli_query instead
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -40,7 +33,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM book ORDER BY Title"); // using m
 
     <header id="header">
         <!--Menu Button-->
-        <a id="biblio" href="index.html">
+        <a id="biblio" href="index.php">
             <h2>Biblio</h2>
         </a>
 
@@ -62,7 +55,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM book ORDER BY Title"); // using m
         <div>
             <ul>
                 <li class="navigation-item">
-                    <a href="index.html">DASHBOARD</a>
+                    <a href="index.php">DASHBOARD</a>
                 </li>
                 <li class="navigation-item active">
                     <a href="book.php">BOOKS</a>
@@ -132,11 +125,11 @@ $result = mysqli_query($mysqli, "SELECT * FROM book ORDER BY Title"); // using m
 		echo "<tr>";
 		//echo "<td>".$res['BookCover']."</td>"; 
 		//echo ;
-		echo "<td>"; ?><img src="<?php echo $res['BookCover']; ?>" height = "120" width = "120"> <?php echo "</td>";
+		echo "<td>"; ?><img src="<?php echo $res['BookCover']; ?>" class="book-cover-search"> <?php echo "</td>";
 		echo "<td>".$res['ISBN']."</td>";
 		echo "<td>".$res['Title']."</td>";
 		echo "<td>".$res['Author']."</td>";	
-		echo "<td><a href=\"edit.php?ISBN=$res[ISBN]\"><button type=\"button\" class=\"btn\">View</button></a> <br><br> 
+		echo "<td><a href=\"bookinfo\bookinfo.php?isbn=$res[ISBN]\"><button type=\"button\" class=\"btn\">View</button></a> <br><br> 
 		<a href=\"delete.php?ISBN=$res[ISBN]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button type=\"button\" class=\"btn\">Delete</button></a></td>";		
 	}
 	

@@ -32,21 +32,23 @@ CREATE TABLE Owned (
     CreatedDate DATE NOT NULL,
     Review VARCHAR(255),
     Rate int,
-    BookStatus VARCHAR (30) NOT NULL,
+    AvailableCopies INT NOT NULL,
     FOREIGN KEY(UserID) REFERENCES Users(UserID),
     FOREIGN KEY(ISBN) REFERENCES Books(ISBN),
     CONSTRAINT PK_Owned PRIMARY KEY (UserID,ISBN)
 );
 
 CREATE TABLE Members (
-    MemberID VARCHAR(10) NOT NULL,
-    LastName VARCHAR(30) NOT NULL,
-    FistName VARCHAR(30) NOT NULL,
-    PhoneNumber INT NOT NULL,
-    Email VARCHAR(50),
-    MemberAddress VARCHAR(255),
+    MemberID INT NOT NULL AUTO_INCREMENT,
+    LastName VARCHAR(50) NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    PhoneNumber VARCHAR(30) NOT NULL,
+    Email VARCHAR(255),
+    MemberAddress TEXT,
     BooksBorrowed INT NOT NULL,
-    MemberStatus VARCHAR(20) NOT NULL,
+    UserID INT NOT NULL,
+    Photo VARCHAR (255),
+    FOREIGN KEY(UserID) REFERENCES Users(UserID),
     CONSTRAINT PK_Member PRIMARY KEY(MemberID)
 );
 
@@ -54,7 +56,7 @@ CREATE TABLE Members (
 CREATE TABLE BookTransactions (
     TransactionID INT NOT NULL,
     ISBN VARCHAR(255) NOT NULL,
-    MemberID VARCHAR(50) NOT NULL,
+    MemberID INT NOT NULL,
     BorrowDate DATE NOT NULL,
     ReturnDate DATE NOT NULL,
     CONSTRAINT PK_Transaction PRIMARY KEY(TransactionID),
