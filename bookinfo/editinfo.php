@@ -17,6 +17,7 @@ $pages = $result['Pages'];
 $copies = $result['Copies'];
 $created = $result['CreatedDate'];
 $review =$result['Review'];
+$rating = $result['Rate']
 ?>
 
 <html lang="en">
@@ -112,19 +113,31 @@ $review =$result['Review'];
             </tr>
             <tr>
                 <td class="table-attr">Publisher</td>
-                <td><input name="pub" class="form-control" type=text value="<?php echo $publisher;?>"></td>
+                <td><input name="pub" class="form-control" type="text" value="<?php echo $publisher;?>"></td>
             </tr>
             <tr>
                 <td class="table-attr">Pages</td>
-                <td><input name="pages" class="form-control" type=text value="<?php echo $pages;?>"></td>
+                <td><input name="pages" class="form-control" type="text" value="<?php echo $pages;?>"></td>
             </tr>
             <tr>
                 <td class="table-attr">Copies</td>
-                <td><input name="copies" class="form-control" type=text value="<?php echo $copies;?>"></td>
+                <td><input name="copies" class="form-control" type="text" value="<?php echo $copies;?>"></td>
+            </tr>
+            <tr>
+                <td class="table-attr">Rating</td>
+                <td>
+                    <select name="rating" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td class="table-attr">Created Date</td>
-                <td><input name="credate" class="form-control" type=timestamp value="<?php echo $created;?>"></td>
+                <td><input name="credate" class="form-control" type="timestamp" value="<?php echo $created;?>"></td>
             </tr>
             <tr>
                 <td class="table-attr">Description</td>

@@ -3,6 +3,12 @@
 
     $sql = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN WHERE UserId='1' ORDER BY owned.CreatedDate DESC LIMIT 4";
     $result = mysqli_query($conn,$sql);
+
+    $overdue = "SELECT books.BookCover, books.Title, members.FirstName, members.LastName, transactions.ReturnDate FROM transactions
+    INNER JOIN members ON transactions.MemberID = members.MemberID
+    INNER JOIN books ON transactions.ISBN = books.ISBN WHERE members.UserID ='1' LIMIT 3";
+
+    $overduer = mysqli_query($conn,$overdue);
 ?>
 
 <!DOCTYPE html>
@@ -85,12 +91,15 @@
             <div id="stats" class="inline boxes">
                 <h5>Total</h5>
                 <?php 
-                $query = "SELECT * FROM owned WHERE UserId='1'";
-                $data = mysqli_query($conn,$query);
-                $numbooks = mysqli_num_rows($data);
-                echo "<h3>".$numbooks."</h3>"?><br>
+                    $query = "SELECT * FROM owned WHERE UserId='1'";
+                    $data = mysqli_query($conn,$query);
+                    $numbooks = mysqli_num_rows($data);
+                    echo "<h3>".$numbooks."</h3>"
+                ?><br>
                 <h5>Checkouts</h5>
-                <h3>30</h3><br>
+                <?php
+                    echo "<h3>".mysqli_num_rows($overduer)."</h3>";
+                ?><br>
                 <h5>Overdue</h5>
                 <h3>5</h3>
             </div>
@@ -100,6 +109,26 @@
                 <h5>Check-out</h5>
                 <a href="Lending/keyIn.html"><img src="media/add.png" class="op-2"></a>
                 <img src="media/minus.png" class="op-1" id="minus">
+                <!-- <div class="dash-checkout"> 
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/819ZixpQzUL.jpg">
+                    <div>
+                        <p>The Power of Habit</p>
+                        <p>by Chan Ka Chun</p>
+                        <p>due 2017/08/01</p>
+                    </div>
+                </div> -->
+                <?php 
+                    while($row = mysqli_fetch_assoc($overduer)){
+                        echo "<div class='dash-checkout'>";
+                        echo "<img src=".$row['BookCover'].">";
+                        echo "<div>";
+                        echo "<p>".$row['Title']."</p>";
+                        echo "<p>by ".$row['FirstName']." ".$row['LastName']."</p>";
+                        echo "<p>due ".$row['ReturnDate']."</p>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                ?> 
             </div>
 
             <div class="boxes-2 inline">

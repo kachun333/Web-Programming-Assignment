@@ -5,7 +5,7 @@ include_once("config.php");
 //fetching data in descending order (lastest entry first)
 //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
 //for displaying all books
-$result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using mysqli_query instead
+$result = mysqli_query($conn, "SELECT * FROM owned INNER JOIN books ON owned.ISBN = books.ISBN WHERE UserID = '1' ORDER BY books.Title"); // using mysqli_query instead
 ?>
 
 <!DOCTYPE html>
@@ -133,38 +133,9 @@ $result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using my
 	?>
 	
 	
-	
-	
 </table>
 
     </main>
-
-
-	<!--<script>
-		function myFunction() {
-		var input, filter, table, tr, td, td1, i, txtValue, txtValue1;
-		input = document.getElementById("myInput");
-		filter = input.value.toUpperCase();
-		table = document.getElementById("myTable");
-		tr = table.getElementsByTagName("tr");
-			for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[1];
-      td1 = tr[i].getElementsByTagName("td")[2];
-				if (td || td1) {
-				txtValue = td.textContent || td.innerText;
-        txtValue1 = td1.textContent || td1.innerText;
-				if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue1.toUpperCase().indexOf(filter) > -1) {
-				tr[i].style.display = "";
-
-		} else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-	</script> -->
-
-
 
     <footer class="container text-center font-italic">
         <hr>

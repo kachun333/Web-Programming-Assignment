@@ -275,6 +275,10 @@ a:visited {
   margin-right: 1em;
 }
 
+.row div div{
+  margin-top: 20px;
+}
+
 footer {
   height: 50px;
   margin-top: 50px;
@@ -287,6 +291,31 @@ footer {
   margin:15px;
   position:relative;
   top:25px;
+}
+
+.dash-checkout{
+  
+}
+.dash-checkout img{
+  width:45px;
+  height:66px;
+  display:inline-block;
+  vertical-align: top;
+}
+
+.dash-checkout p{
+  margin-bottom:0px;
+  font-size:13px;
+}
+
+.dash-checkout p:first-child{
+  font-size:18px;
+}
+
+.dash-checkout div{
+  display:inline-block;
+  margin-top:0px !important;
+  vertical-align:top;
 }
 
 .row div .dash-book-div{
@@ -529,37 +558,27 @@ vertical-align: top;
 .wrapper {
     position: relative;
     display: inline-block;
-    border: none;
-    font-size: 14px;
-    margin: auto;
     left: 50%;
     transform: translateX(-50%);
+    margin-top:10px;
+    margin-left:5px;
   }
 
-  .wrapper input {
-    border: 0;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
-    opacity: 0;
+
+
+  .wrapper img{
+    width:25px;
+    height:25px;
+    margin:2px;
   }
 
-  .wrapper label {
-    position: relative;
-    float: right;
-    color: #C8C8C8;
-  }
-
-  .wrapper label:before {
+  /* .wrapper label:before {
     margin: 5px;
     content: "\f005";
     font-family: 'FontAwesome';
     display: inline-block;
     font-size: 1.5em;
-    color: #ccc;
+    color: #FFC107;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -575,7 +594,7 @@ vertical-align: top;
 
   .wrapper label:hover:before {
     color: #FFC107;
-  }
+  } */
 
   .edit-btn{
     position: relative;
@@ -586,8 +605,15 @@ vertical-align: top;
     border:1px grey solid;
   }
 
+  .transaction-btn{
+      position: relative;
+      left: 50%;
+      margin-top:30px;
+      top:10px;
+      transform: translate(-50%, -50%);
+  }
 /*Edit book info*/
-#editinfo input, #editinfo textarea{
+#editinfo input, #editinfo textarea, #editinfo select{
   width:90%;
 }
 
@@ -603,6 +629,9 @@ vertical-align: top;
   display:inline;
 }
 
+.min-container {
+  min-height: 450px;
+}
 
 /*stats for members*/
 .vertical .progress-bar {

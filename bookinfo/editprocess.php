@@ -14,11 +14,12 @@
         $copies = $_POST['copies'];
         $created = $_POST['credate'];
         $review = addslashes($_POST['review']);
+        $rating = $_POST['rating'];
     
 
 
         $sql = "UPDATE books SET ISBN='$isbn', Title ='$title', Author='$author', Genre='$genre',PublishedDate='$publishDate',Publisher='$publisher',BookDescription='$desc',Pages='$pages' WHERE ISBN='$isbn'";
-        $sql2 = "UPDATE owned SET Copies ='$copies', CreatedDate='$created',Review='$review' WHERE ISBN='$isbn'";
+        $sql2 = "UPDATE owned SET Copies ='$copies', CreatedDate='$created',Review='$review',Rate='$rating' WHERE ISBN='$isbn'";
         mysqli_query($conn, $sql);
         mysqli_query($conn,$sql2);
 

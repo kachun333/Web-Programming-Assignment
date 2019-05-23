@@ -5,7 +5,7 @@
     //fetching data in descending order (lastest entry first)
     //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
     //for displaying all books
-    $result = mysqli_query($conn, "SELECT * FROM members ORDER BY MemberID"); // using mysqli_query instead
+    $result = mysqli_query($conn, "SELECT * FROM members WHERE UserID = '1' ORDER BY MemberID"); // using mysqli_query instead
 ?>
 
 <!DOCTYPE html>
@@ -20,10 +20,6 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../biblio.css">
     <style>
-
-        .member-container {
-            min-height: 450px;
-        }
 
         #header,.navigation,footer {
             min-width: 600px;
@@ -74,13 +70,13 @@
         </div>
     </nav>
 
-    <main class="container member-container alert-top">
+    <main class="container min-container alert-top">
         <div class="alert alert-warning" role="alert">
             <h2>Members</h2>
             <div class="float-right">
                 <a href="addmember.php"><button id="add-book" type="button" class="btn">Add Member</button></a>
             </div>
-        </div><br>
+        </div>
 
         
         <table id="myTable" class="table table-hover table-bordered">
@@ -98,7 +94,7 @@
             echo "<tr>";
             //echo "<td>".$res['BookCover']."</td>"; 
             //echo ;
-            echo "<td>".$res['LastName']." ".$res['FirstName']."</td>";
+            echo "<td>".$res['FirstName']." ".$res['LastName']."</td>";
             echo "<td>".$res['PhoneNumber']."</td>";
             echo "<td>".$res['Email']."</td>";
             echo "<td><a href=\"member\memberinfo.php?id=$res[MemberID]\"><button type=\"button\" class=\"btn\">View</button></a> <br>";		

@@ -1,6 +1,7 @@
 <?php 
     include '../config.php';
 
+    $id = '1';
     $isbn = $_GET['isbn'];
     //$isbn = '9781400069286';
     $query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN WHERE books.ISBN=$isbn";
@@ -19,7 +20,7 @@
     $copies = $result['Copies'];
     $created = $result['CreatedDate'];
     $review =$result['Review'];
-    $rate = $result['Rate'];
+    $rating = $result['Rate'];
     $bstatus = $result['BookStatus'];
 ?>
 
@@ -108,16 +109,15 @@
                 <div class="book-left">
                     <img src=<?php echo $cover;?> class="book-img">
                     <div class="wrapper">
-                        <input type="checkbox" id="st1" value="1" />
-                        <label for="st1"></label>
-                        <input type="checkbox" id="st2" value="2" />
-                        <label for="st2"></label>
-                        <input type="checkbox" id="st3" value="3" />
-                        <label for="st3"></label>
-                        <input type="checkbox" id="st4" value="4" />
-                        <label for="st4"></label>
-                        <input type="checkbox" id="st5" value="5" />
-                        <label for="st5"></label>
+                        <?php 
+                            for($i=1;$i<=5;$i++){
+                                if($i<=$rating){
+                                    echo "<img src='../media/yellow star.png'>";
+                                }else{
+                                    echo "<img src='../media/grey star.png'>";
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
                     
@@ -163,6 +163,10 @@
                     <td><?php echo $copies;?></td>
                 </tr>
                 <tr>
+                    <td class="table-attr">Rating</td>
+                    <td><?php echo $rating;?></td>
+                </tr>
+                <tr>
                     <td class="table-attr">Created Date</td>
                     <td><?php echo $created;?></td>
                 </tr>
@@ -172,6 +176,10 @@
                 <h4>Review</h4>
                 <p><?php echo $review;?></p>
             </div>
+            <?php 
+                echo "<a href='transactionlog.php?isbn=".$isbn."&id=".$id."'>";
+            ?>
+           <button type="button" class="btn transaction-btn">Transaction Log</button></a>
         </div> 
 
         

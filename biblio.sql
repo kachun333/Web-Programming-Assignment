@@ -53,8 +53,8 @@ CREATE TABLE Members (
 );
 
 
-CREATE TABLE BookTransactions (
-    TransactionID INT NOT NULL,
+CREATE TABLE Transactions (
+    TransactionID INT NOT NULL AUTO_INCREMENT,
     ISBN VARCHAR(255) NOT NULL,
     MemberID INT NOT NULL,
     BorrowDate DATE NOT NULL,
