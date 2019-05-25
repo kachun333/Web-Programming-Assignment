@@ -6,8 +6,8 @@ $db = "biblio";
 
 $connect = new mysqli($host, $user, $pass, $db);
 
-if (mysqli_connect_errno()) {
-  echo 'Failed to connect to MySQL'. mysqli_connect_errno();
+if ($db->connect_errno) {
+  die(mysqli_connect_error());
 }
 
 

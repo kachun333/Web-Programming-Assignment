@@ -7,7 +7,7 @@ require "connectBS.php";
     $title = $_GET["title"];
     $author = $_GET["author"];
     $url = $_GET["url"];
-    $description = $_GET["description"];
+    $description = addslashes($_GET["description"]);
     $isbn_13 = $_GET["isbn_13"];
     $year = $_GET["year"];
     $publisher = $_GET["publisher"];
@@ -19,9 +19,12 @@ require "connectBS.php";
 //   echo $info[$i];
 //   echo "<br>";
 // }
-echo $description;
+  // if ($year == Date("Y")) {
+  //   $year = Date($year, 01, 01);
+  // }
+  
   $sql = "INSERT INTO `books`(`ISBN`, `Title`, `Author`, `PublishedDate`, `Publisher`, `BookDescription`, `Pages`, `BookCover`)
-  VALUES ('{123}','{$title}','{$author}','{$year}','{$publisher}','{$description}','{$pages}','{$img}')";
+  VALUES ('{$isbn_13}','{$title}','{$author}','{$year}','{$publisher}','{$description}','{$pages}','{$img}')";
   $result = mysqli_query($connect, $sql);
   if ($result) {
     echo "Success";
@@ -29,7 +32,7 @@ echo $description;
     echo "Failed";
   }
 
-//echo '<script type="text/javascript"> console.log("'.$info[4].'")</script>';
+// echo '<script type="text/javascript"> console.log("Result: '.$result.'")</script>';
 
 //$sql = 'SELECT * FROM books WHERE title ="'+$title+'";';
  ?>

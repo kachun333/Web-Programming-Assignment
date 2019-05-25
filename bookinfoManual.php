@@ -1,7 +1,7 @@
 <?php
     error_reporting(0);
     require "connectBS.php";
-    require "bookResultProcess.php";
+    // require "bookResultProcess.php";
     //$isbn = '9781400069286';
     //$query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN";
     //$data = $conn -> query($query);
@@ -42,9 +42,6 @@
     </style>
 
 </head>
-<!-- <?php
-  include "manualBook.php";
-?> -->
 <body>
 
     <header id="header">
@@ -90,6 +87,13 @@
         </div>
     </nav>
     <main class="container">
+        <?php
+        $url = "";
+        $description = "";
+        $img = "";
+        $review = "";
+        include "manualBook.php";
+        ?>
 
         <div class="alert alert-warning" role="alert">
             <h2>Book Details</h2>
@@ -148,7 +152,7 @@
                 </tr>
                 <tr>
                     <td class="table-attr">Edition</td>
-                    <td></td>
+                    <td><?php echo $edition;?></td>
                 </tr>
                 <tr>
                     <td class="table-attr">ISBN</td>
