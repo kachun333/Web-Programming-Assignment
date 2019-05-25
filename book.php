@@ -5,7 +5,7 @@ include_once("config.php");
 //fetching data in descending order (lastest entry first)
 //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
 //for displaying all books
-$query = mysqli_query($conn, "SELECT BookCover,Title,Author,ISBN FROM book ORDER BY Title"); // using mysqli_query instead
+$query = mysqli_query($conn, "SELECT BookCover,Title,Author,ISBN FROM books ORDER BY Title"); // using mysqli_query instead
 
 
 
