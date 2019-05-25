@@ -39,11 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $sql = "INSERT INTO `books`(`ISBN`, `Title`, `Author`, `PublishedDate`, `Publisher`, `Pages`, `BookCover`)
     VALUES ('{$isbn_13}','{$title}','{$author}','{$year}','{$publisher}','{$pages}','{$img}')";
     $result = mysqli_query($connect, $sql);
-    if ($result) {
-      echo "Success";
-    }else {
-      echo "Failed";
-    }
+//     if ($result) {
+//       echo "Success";
+//     }else {
+//       echo "Failed";
+//     }
   }
 }
  ?>
