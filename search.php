@@ -2,15 +2,8 @@
 //including the database connection file
 include_once("config.php");
 
-//fetching data in descending order (lastest entry first)
-//$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
-$result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using mysqli_query instead
-
-
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -37,10 +30,12 @@ $result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using my
 <body>
 
     <header id="header">
+	
         <!--Menu Button-->
-        <a id="biblio" href="index.php">
+        <a id="biblio" href="index.html">
             <h2>Biblio</h2>
         </a>
+		
 
         <!-- profile picture -->
         <div class="dropdown">
@@ -60,7 +55,7 @@ $result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using my
         <div>
             <ul>
                 <li class="navigation-item">
-                    <a href="index.php">DASHBOARD</a>
+                    <a href="index.html">DASHBOARD</a>
                 </li>
                 <li class="navigation-item active">
                     <a href="book.php">BOOKS</a>
@@ -80,14 +75,40 @@ $result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using my
             </ul>
         </div>
     </nav>
+	<br>
 	
- 
 
 	
     <main class="container" >
+	<a href="book.php"><button id="add-book-btn" type="button" class="btn">Back</button></a>
+	 <form id="category" action="search.php" method="POST" >
+
+    <div class="float-center form-group col-md-6">
+   
+      <input name = "searchterm" type="text" required class="form-control" placeholder="Search Book Title or Author Name" title="Type in name" aria-label="Search"> <br>
+	 <!--<div class="form-group col-md-6">-->
+		 <select name="searchtype" class="form-control form-group col-md-3">
+			<option value="Author">Author</option>
+			<option value="Title">Title</option>
+			<option value="ISBN">ISBN</option>
+ 
+		</select>
+	</div>
+       <!-- <input type="submit" name="submit" value="Search"> -->
+	   
+        &nbsp; &nbsp; <button type ="submit" name="submit" value="Search" class="btn">Search</button>
+      
+	  <div class="float-right">
+        <a href="bookSearch.html"><button id="add-book-btn" type="button" class="btn">Add Book</button></a>
+      </div> 
+	  
+	  
+	  
+	  
+    </form>
    
    
-<table id="myTable" class="table table-hover table-bordered">
+<table id="myTable" class="table table-hover table-bordered" style="margin-right:5px;">
 <thead>
   <tr class="header">
     <th scope="col" style="width: 4%;"> Book Cover</th>
@@ -113,7 +134,7 @@ $result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using my
     switch ($searchtype) {
       case 'Title':
       case 'Author':
-      case 'ISBN':   
+      case 'ISBN':
         break;
       default: 
         echo '<p>That is not a valid search type. <br/>
@@ -122,15 +143,17 @@ $result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using my
     }
 
 
-    $query = "SELECT BookCover,Author,Title,ISBN FROM books WHERE $searchtype like ?";
+    $query = "SELECT BookCover,Author,Title,ISBN FROM books WHERE $searchtype like ? ORDER BY Title";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('s', $searchterm);  //s stand for string
+	
+	$stmt->bind_param('s', $searchterm);  
     $stmt->execute();
     $stmt->store_result(); //to store the results
   
-    $stmt->bind_result($BookCover,$author, $title, $ISBN);
+    $stmt->bind_result($BookCover, $author, $title, $ISBN);
+	
 
-    echo "<p>Number of books found: ".$stmt->num_rows."</p>";
+    echo "<br><p>Number of books found: ".$stmt->num_rows."</p>";
 
     while($stmt->fetch()) {
 		echo "<tr>";
@@ -138,8 +161,8 @@ $result = mysqli_query($conn, "SELECT * FROM books ORDER BY Title"); // using my
 		echo "<td>" .$ISBN."</td>";
 		echo "<td>".$title."</td>";
 		echo "<td>".$author."</td>";
-		//echo "<td><a href=\"edit.php?ISBN=$stmt[ISBN]\"><button type=\"button\" class=\"btn\">View</button></a> <br><br> <a href=\"delete.php?ISBN=$stmt[ISBN]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button type=\"button\" class=\"btn\">Delete</button></a></td>";
-		echo "<td>" ?> <a href = "delete.php?ISBN=$stmt[ISBN]" onClick="return confirm('Are you sure you want to delete?')" > Delete </a> <?php echo"</td>";
+		echo "<td><a href=\"bookinfo.php?ISBN=$ISBN\"><button type=\"button\" class=\"btn\">View</button></a> <br><br>  
+		<a href=\"delete.php?ISBN=$ISBN\" onClick=\"return confirm('Are you sure you want to delete?')\"><button type=\"button\" class=\"btn\">Delete</button></a></td>";  
 		
     }
 

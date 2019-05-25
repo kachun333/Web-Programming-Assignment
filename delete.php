@@ -4,12 +4,12 @@
 //including the database connection file
 include("config.php");
 
-//getting id of the data from url
+//getting isbn of the data from url
 $ISBN = $_GET['ISBN'];
 
 //3. Execute the SQL query.
 //deleting the row from table
-$result = mysqli_query($conn, "DELETE * FROM books WHERE ISBN='$ISBN'");
+$result = mysqli_query($conn, "DELETE * FROM books,booktransactions,owned WHERE ISBN=$ISBN");
 
 //Step 5: Freeing Resources and Closing Connection using mysqli
 mysqli_close($conn);

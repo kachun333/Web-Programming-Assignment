@@ -5,8 +5,15 @@ include_once("config.php");
 //fetching data in descending order (lastest entry first)
 //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
 //for displaying all books
-$result = mysqli_query($conn, "SELECT * FROM owned INNER JOIN books ON owned.ISBN = books.ISBN WHERE UserID = '1' ORDER BY books.Title"); // using mysqli_query instead
+$query = mysqli_query($conn, "SELECT BookCover,Title,Author,ISBN FROM book ORDER BY Title"); // using mysqli_query instead
+
+
+
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -20,6 +27,9 @@ $result = mysqli_query($conn, "SELECT * FROM owned INNER JOIN books ON owned.ISB
         crossorigin="anonymous">
     <link rel="stylesheet" href="biblio.css">
     <style>
+    .container {
+            padding-top:20px;
+        }
         #header, .navigation, footer{
             min-width:600px;
         }    
@@ -30,7 +40,7 @@ $result = mysqli_query($conn, "SELECT * FROM owned INNER JOIN books ON owned.ISB
 
     <header id="header">
         <!--Menu Button-->
-        <a id="biblio" href="index.php">
+        <a id="biblio" href="index.html">
             <h2>Biblio</h2>
         </a>
 
@@ -52,7 +62,7 @@ $result = mysqli_query($conn, "SELECT * FROM owned INNER JOIN books ON owned.ISB
         <div>
             <ul>
                 <li class="navigation-item">
-                    <a href="index.php">DASHBOARD</a>
+                    <a href="index.html">DASHBOARD</a>
                 </li>
                 <li class="navigation-item active">
                     <a href="book.php">BOOKS</a>
@@ -63,10 +73,10 @@ $result = mysqli_query($conn, "SELECT * FROM owned INNER JOIN books ON owned.ISB
                 </li>
 
                 <li class="navigation-item">
-                    <a href="member/member.php">MEMBER</a>
+                    <a href="member.html">MEMBER</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="statistic.php">STATISTIC</a>
+                    <a href="statistic.html">STATISTIC</a>
                 </li>
 
             </ul>
@@ -75,7 +85,7 @@ $result = mysqli_query($conn, "SELECT * FROM owned INNER JOIN books ON owned.ISB
 	
 
 	
-    <main class="container alert-top" >
+    <main class="container" >
    
   <form id="category" action="search.php" method="POST" >
 
@@ -113,29 +123,35 @@ $result = mysqli_query($conn, "SELECT * FROM owned INNER JOIN books ON owned.ISB
 	<th scope="col" style="width: 5%;"> ISBN</th>
     <th scope="col" style="width:20%;">Title</th>
 	  <th scope="col" style ="width: 7.5%;"> Author </th>
-    <th scope="col" style ="width: 5%;">Book info</th> 
+    <th scope="col" style ="width: 5%;">Book Info</th> 
   </tr>
   </thead>
 		<?php 
-	//while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
-	while($res = mysqli_fetch_array($result)) { 		
+	
+	while($res = mysqli_fetch_array($query)) { 		
 		echo "<tr>";
-		//echo "<td>".$res['BookCover']."</td>"; 
-		//echo ;
-		echo "<td>"; ?><img src="<?php echo $res['BookCover']; ?>" class="book-cover-search"> <?php echo "</td>";
+		echo "<td>"; ?><img src="<?php echo $res['BookCover']; ?>" height = "120" width="120""> <?php echo "</td>";
 		echo "<td>".$res['ISBN']."</td>";
 		echo "<td>".$res['Title']."</td>";
-		echo "<td>".$res['Author']."</td>";	
-		echo "<td><a href=\"bookinfo\bookinfo.php?isbn=$res[ISBN]\"><button type=\"button\" class=\"btn\">View</button></a> <br><br> 
-		<a href=\"delete.php?ISBN=$res[ISBN]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button type=\"button\" class=\"btn\">Delete</button></a></td>";		
+		echo "<td>".$res['Author']."</td>";		
+		echo "<td><a href=\"bookinfo.php?ISBN=$res[ISBN]\"><button type=\"button\" class=\"btn\">View</button></a> <br><br>  
+		<a href=\"delete.php?ISBN=$res[ISBN]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button type=\"button\" class=\"btn\">Delete</button></a></td>";
+		
 	}
+	//Step 5: Freeing Resources and Closing Connection using mysqli
+		mysqli_close($conn);
 	
 	?>
+	
+	
 	
 	
 </table>
 
     </main>
+
+
+
 
     <footer class="container text-center font-italic">
         <hr>
