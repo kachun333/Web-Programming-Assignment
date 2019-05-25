@@ -26,11 +26,11 @@ require "connectBS.php";
   $sql = "INSERT INTO `books`(`ISBN`, `Title`, `Author`, `PublishedDate`, `Publisher`, `BookDescription`, `Pages`, `BookCover`)
   VALUES ('{$isbn_13}','{$title}','{$author}','{$year}','{$publisher}','{$description}','{$pages}','{$img}')";
   $result = mysqli_query($connect, $sql);
-  if ($result) {
-    echo "Success";
-  }else {
-    echo "Failed";
-  }
+//   if ($result) {
+//     echo "Success";
+//   }else {
+//     echo "Failed";
+//   }
 
 // echo '<script type="text/javascript"> console.log("Result: '.$result.'")</script>';
 
