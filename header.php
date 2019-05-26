@@ -6,7 +6,7 @@
 
         <!-- profile picture -->
         <div class="dropdown">
-            <img src="../media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
+            <img src="media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
 
 
@@ -22,21 +22,21 @@
         <div>
             <ul>
                 <li class="navigation-item active">
-                    <a href="../index.php">DASHBOARD</a>
+                    <a href="index.php">DASHBOARD</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="../book.php">BOOKS</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="../Lending/lending.html">LENDING</a>
+                    <a href="book.php">BOOKS</a>
                 </li>
 
                 <li class="navigation-item">
-                    <a href="member.php">MEMBER</a>
+                    <a href="Lending/lending.html">LENDING</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="member/member.php">MEMBER</a>
                 </li>
                 <li class="navigation-item">
-                    <a href="../statistic.php">STATISTIC</a>
+                    <a href="statistic.php">STATISTIC</a>
                 </li>
             </ul>
         </div>

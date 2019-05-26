@@ -156,7 +156,7 @@
             var smallbox = document.querySelector("#smallbox");
             // console.log(box.offsetHeight);
             // console.log(smallbox.offsetHeight);
-            box.style.height = smallbox.offsetHeight + 100 +'px';
+            box.style.height = smallbox.offsetHeight + 320 +'px';
 			
 
 		}</script>

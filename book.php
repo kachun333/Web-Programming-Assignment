@@ -38,50 +38,7 @@ $query = mysqli_query($conn, "SELECT BookCover,Title,Author,ISBN FROM books ORDE
 
 <body>
 
-    <header id="header">
-        <!--Menu Button-->
-        <a id="biblio" href="index.html">
-            <h2>Biblio</h2>
-        </a>
-
-        <!-- profile picture -->
-        <div class="dropdown">
-            <img src="media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Setting</a>
-                <a class="dropdown-item" href="preview.html">Logout</a>
-            </div>
-        </div>
-    </header>
-
-    <nav class="navigation">
-        <div>
-            <ul>
-                <li class="navigation-item">
-                    <a href="index.html">DASHBOARD</a>
-                </li>
-                <li class="navigation-item active">
-                    <a href="book.php">BOOKS</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="Lending/lending.html">LENDING</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="member.html">MEMBER</a>
-                </li>
-                <li class="navigation-item">
-                    <a href="statistic.html">STATISTIC</a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
+   <?php include 'header.php>'; ?>
 	
 
 	
@@ -130,11 +87,11 @@ $query = mysqli_query($conn, "SELECT BookCover,Title,Author,ISBN FROM books ORDE
 	
 	while($res = mysqli_fetch_array($query)) { 		
 		echo "<tr>";
-		echo "<td>"; ?><img src="<?php echo $res['BookCover']; ?>" height = "120" width="120""> <?php echo "</td>";
+		echo "<td>"; ?><img src="<?php echo $res['BookCover']; ?>" class='dash-newbook'> <?php echo "</td>";
 		echo "<td>".$res['ISBN']."</td>";
 		echo "<td>".$res['Title']."</td>";
 		echo "<td>".$res['Author']."</td>";		
-		echo "<td><a href=\"bookinfo.php?ISBN=$res[ISBN]\"><button type=\"button\" class=\"btn\">View</button></a> <br><br>  
+		echo "<td><a href=\"bookinfo\bookinfo.php?ISBN=$res[ISBN]\"><button type=\"button\" class=\"btn\">View</button></a> <br><br>  
 		<a href=\"delete.php?ISBN=$res[ISBN]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button type=\"button\" class=\"btn\">Delete</button></a></td>";
 		
 	}

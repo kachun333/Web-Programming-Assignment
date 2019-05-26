@@ -1,5 +1,5 @@
 <?php
-require "connectBS.php";
+require "config.php";
   if (isset($_GET["title"]) && isset($_GET["author"]) && isset($_GET["url"])
     && isset($_GET["description"]) && isset($_GET["isbn_13"]) && isset($_GET["year"])
     && isset($_GET["publisher"]) && isset($_GET["pages"]) && isset($_GET["image"])) {

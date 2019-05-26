@@ -1,6 +1,6 @@
 <?php
     error_reporting(0);
-    require "connectBS.php";
+    require "config.php";
     // require "bookResultProcess.php";
     //$isbn = '9781400069286';
     //$query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN";

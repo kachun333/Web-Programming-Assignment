@@ -1,7 +1,7 @@
 CREATE DATABASE biblio;
 
 CREATE TABLE Users (
-    UserID INT NOT NULL,
+    UserID INT NOT NULL AUTO_INCREMENT,
     Username VARCHAR (30) NOT NULL,
     LastName VARCHAR(30) NOT NULL,
     FirstName VARCHAR(30) NOT NULL,
@@ -28,13 +28,15 @@ CREATE TABLE Books (
 CREATE TABLE Owned (
     UserID INT NOT NULL,
     ISBN VARCHAR(255) NOT NULL,
-    Copies int,
-    CreatedDate DATE NOT NULL,
+    Copies int DEFAULT 1,
+    CreatedDate DATE,
     Review VARCHAR(255),
     Rate int,
     AvailableCopies INT NOT NULL,
-    FOREIGN KEY(UserID) REFERENCES Users(UserID),
-    FOREIGN KEY(ISBN) REFERENCES Books(ISBN),
+    CONSTRAINT FK_OwnedUser FOREIGN KEY(UserID) 
+    REFERENCES Users(UserID),
+    CONSTRAINT FK_OwnedBook FOREIGN KEY(ISBN) 
+    REFERENCES Books(ISBN) ON DELETE CASCADE,
     CONSTRAINT PK_Owned PRIMARY KEY (UserID,ISBN)
 );
 
@@ -47,7 +49,7 @@ CREATE TABLE Members (
     MemberAddress TEXT,
     BooksBorrowed INT NOT NULL,
     UserID INT NOT NULL,
-    Photo VARCHAR (255),
+    Photo VARCHAR (255) DEFAULT "./uploads/noimage.png",
     FOREIGN KEY(UserID) REFERENCES Users(UserID),
     CONSTRAINT PK_Member PRIMARY KEY(MemberID)
 );
@@ -58,10 +60,22 @@ CREATE TABLE Transactions (
     ISBN VARCHAR(255) NOT NULL,
     MemberID INT NOT NULL,
     BorrowDate DATE NOT NULL,
-    ReturnDate DATE NOT NULL,
+    ReturnDate DATE,
+    ExpiredDate DATE NOT NULL,
+    TransactionsStatus VARCHAR(30),
     CONSTRAINT PK_Transaction PRIMARY KEY(TransactionID),
     CONSTRAINT FK_BorrowMember FOREIGN KEY(MemberID)
     REFERENCES Members(MemberID),
     CONSTRAINT FK_BorrowedBook FOREIGN KEY(ISBN)
+    REFERENCES Books(ISBN) ON DELETE CASCADE
+); 
+
+CREATE TABLE Cart (
+    CartID INT NOT NULL,
+    MemberID INT NOT NULL,
+    ISBN VARCHAR(255) NOT NULL,
+    CONSTRAINT FK_CartMember FOREIGN KEY(MemberID)
+    REFERENCES Members(MemberID),
+    CONSTRAINT FK_CartBook FOREIGN KEY(ISBN)
     REFERENCES Books(ISBN)
-) 
+)
