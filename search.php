@@ -109,7 +109,7 @@ include_once("config.php");
 
     while($stmt->fetch()) {
 		echo "<tr>";
-		echo "<td>" ?> <img src="<?php echo $BookCover ?>" class="book-cover-search"> <?php echo"</td>";
+		echo "<td>" ?> <img src="<?php echo $BookCover ?>" class="book-cover-search""> <?php echo"</td>";
 		echo "<td>" .$ISBN."</td>";
 		echo "<td>".$title."</td>";
 		echo "<td>".$author."</td>";
