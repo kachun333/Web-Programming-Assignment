@@ -29,57 +29,9 @@ include_once("config.php");
 
 <body>
 
-    <header id="header">
-	
-        <!--Menu Button-->
-        <a id="biblio" href="index.html">
-            <h2>Biblio</h2>
-        </a>
-		
+    <?php include 'header.php'?>
 
-        <!-- profile picture -->
-        <div class="dropdown">
-            <img src="media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Setting</a>
-                <a class="dropdown-item" href="preview.html">Logout</a>
-            </div>
-        </div>
-    </header>
-
-    <nav class="navigation">
-        <div>
-            <ul>
-                <li class="navigation-item">
-                    <a href="index.html">DASHBOARD</a>
-                </li>
-                <li class="navigation-item active">
-                    <a href="book.php">BOOKS</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="Lending/lending.html">LENDING</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="member.html">MEMBER</a>
-                </li>
-                <li class="navigation-item">
-                    <a href="statistic.html">STATISTIC</a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
-	<br>
-	
-
-	
-    <main class="container" >
+    <main class="container alert-top" >
 	<a href="book.php"><button id="add-book-btn" type="button" class="btn">Back</button></a>
 	 <form id="category" action="search.php" method="POST" >
 

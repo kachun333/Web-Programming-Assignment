@@ -1,8 +1,10 @@
 <?php 
-
+    include '../session.php';
     include '../config.php';
-    $id = '2';
+   
+    
     if(isset($_POST['edit'])){
+        $id = $_POST["memberId"];
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
         $nophone = $_POST['nophone'];
@@ -14,6 +16,6 @@
         $sql = "UPDATE members SET FirstName='$fname', LastName ='$lname', PhoneNumber='$nophone',Email='$email', MemberAddress='$address' WHERE MemberID=$id";
         mysqli_query($conn, $sql);
 
-        header("Location:member.php?id=$id");
+        header("Location:member.php?memberId=$id");
     }
 ?>

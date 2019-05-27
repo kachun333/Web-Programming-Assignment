@@ -1,7 +1,8 @@
 <?php 
+    include '../session.php';
     include '../config.php';
+    $id = $_GET["memberId"];
 
-    $id = '2';
     //$_GET['memberId']
     $sql = "SELECT FirstName, LastName, PhoneNumber,Email,MemberAddress FROM members WHERE MemberID = $id";
     $data = mysqli_query($conn,$sql);
@@ -31,11 +32,20 @@
 
 <body>
 
-    <?php include '../header.php'?>
+    <?php include 'memberheader.php'?>
 
-    <main class="container">
+    <main class="container alert-top">
+
+        <div class="alert alert-warning" role="alert">
+            <h2>Edit Member Info</h2>
+        </div>
         <form id="editinfo" method="POST" action="editmemberprocess.php">
             <table class="table2">
+
+                <tr>
+                    <td class="table-attr">Member ID</td>
+                    <td><input name="memberId" class="form-control" type=text value="<?php echo $id;?>" readonly></td>
+                </tr>
                 <tr>
                     <td class="table-attr">First Name</td>
                     <td><input name="fname" class="form-control" type=text value="<?php echo $fname;?>"></td>

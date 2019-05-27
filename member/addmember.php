@@ -22,7 +22,7 @@
 
 <body>
 
-    <?php include '../header.php'?>
+    <?php include 'memberheader.php'?>
 
     
     <main class="container alert-top">
@@ -70,7 +70,8 @@
                     </div>
                     <br>
                     <div class="form-group form-row justify-content-center">
-                        <button type="submit" name="addMember" class="btn btn-danger">Submit</button>
+                        <a href="member.php" class="edit-btn" style="text-align:center">Back</a>
+                        <button type="submit" name="addMember" class="edit-btn btn btn-danger">Submit</button>
                     </div>
                 <br>
             </form>

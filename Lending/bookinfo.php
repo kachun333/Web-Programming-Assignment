@@ -1,19 +1,16 @@
 <?php 
-    include '../session.php';
     include '../config.php';
 
-    $id = $_SESSION["UserID"];
-    $isbn = $_GET['ISBN'];
-    //$isbn = '9781400069286';
-    $query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN WHERE books.ISBN=$isbn AND owned.UserID=$id";
-    $data = mysqli_query($conn,$query);
-    $result = mysqli_fetch_assoc($data);
+    $isbn = '9781400069286';
+    $query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN";
+    $data = $conn -> query($query);
+    $result = $data -> fetch(PDO::FETCH_ASSOC);
 
     $isbn = $result['ISBN'];
     $title = $result['Title'];
     $author = $result['Author'];
     $genre = $result['Genre'];
-    $publishDate = $result['PublishedDate'];
+    $pubishDate = $result['PublishedDate'];
     $publisher = $result['Publisher'];
     $desc = $result['BookDescription'];
     $pages = $result['Pages'];
@@ -21,12 +18,12 @@
     $copies = $result['Copies'];
     $created = $result['CreatedDate'];
     $review =$result['Review'];
-    $rating = $result['Rate'];
+    $rate = $result['Rate'];
+    $bstatus = $result['BookStatus'];
 ?>
 
-<html>
 <head>
-    <title><?php echo "Biblio - ".$title?></title>
+    <title>Dashboard - Biblio</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -35,6 +32,9 @@
     <link rel="stylesheet" href="..\biblio.css">
     <style>
 
+        .container {
+            padding-top:20px;
+        }
         #header, .navigation, footer{
             min-width:600px;
         }        
@@ -44,15 +44,16 @@
 
 <body>
 
-    <?php include 'bookheader.php'?>
-    
-    <main class="container alert-top">
+    <?php
+        include 'lendheader.php';
+    ?>
+    <main class="container">
 
         <div class="alert alert-warning" role="alert">
             <h2>Book Details</h2>
             <div id="btn-div">
-                <?php echo "<a href='editinfo.php?ISBN=$isbn'><button class='edit-btn'>Edit</button></a>";?>
-                <a href="../book.php"><button class="edit-btn">Back</button></a>
+                <button class="edit-btn" id="edit">Edit</button>
+                <button class="edit-btn" onclick="goBack()">Back</button>
             </div>
         </div>
 
@@ -69,15 +70,16 @@
                 <div class="book-left">
                     <img src=<?php echo $cover;?> class="book-img">
                     <div class="wrapper">
-                        <?php 
-                            for($i=1;$i<=5;$i++){
-                                if($i<=$rating){
-                                    echo "<img src='../media/yellow star.png'>";
-                                }else{
-                                    echo "<img src='../media/grey star.png'>";
-                                }
-                            }
-                        ?>
+                        <input type="checkbox" id="st1" value="1" />
+                        <label for="st1"></label>
+                        <input type="checkbox" id="st2" value="2" />
+                        <label for="st2"></label>
+                        <input type="checkbox" id="st3" value="3" />
+                        <label for="st3"></label>
+                        <input type="checkbox" id="st4" value="4" />
+                        <label for="st4"></label>
+                        <input type="checkbox" id="st5" value="5" />
+                        <label for="st5"></label>
                     </div>
                 </div>
                     
@@ -100,7 +102,11 @@
                 </tr>
                 <tr>
                     <td class="table-attr">Genre</td>
-                    <td><?php echo $genre;?></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="table-attr">Edition</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="table-attr">ISBN</td>
@@ -108,11 +114,11 @@
                 </tr>
                 <tr>
                     <td class="table-attr">Published Date</td>
-                    <td><?php echo $publishDate;?></td>
+                    <td><?php echo $pubishDate;?></td>
                 </tr>
                 <tr>
                     <td class="table-attr">Publisher</td>
-                    <td><?php echo $publisher;?></td>
+                    <td><?php echo $publisher;?>g</td>
                 </tr>
                 <tr>
                     <td class="table-attr">Pages</td>
@@ -132,17 +138,13 @@
                 <h4>Review</h4>
                 <p><?php echo $review;?></p>
             </div>
-            <?php 
-                echo "<a href='transactionlog.php?ISBN=".$isbn."&id=".$id."'>";
-            ?>
-           <button type="button" class="btn transaction-btn">Transaction Log</button></a>
         </div> 
 
         
     </main>
     <footer class="text-center font-italic">
         <hr>
-        Copyright &copy 2019 Biblio.com<br>
+        Copyright &copy 2019 Biblio.com</br>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

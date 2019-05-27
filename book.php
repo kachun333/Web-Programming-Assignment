@@ -1,11 +1,14 @@
 <?php
 //including the database connection file
+include 'session.php';
 include_once("config.php");
+$id = $_SESSION["UserID"];
 
-//fetching data in descending order (lastest entry first)
+#ending order (lastest entry first)
 //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
 //for displaying all books
-$query = mysqli_query($conn, "SELECT BookCover,Title,Author,ISBN FROM books ORDER BY Title"); // using mysqli_query instead
+$query = mysqli_query($conn, "SELECT books.BookCover,books.Title,books.Author,books.ISBN FROM books 
+        INNER JOIN owned ON books.ISBN = owned.ISBN WHERE owned.UserID = $id ORDER BY Title"); // using mysqli_query instead
 
 
 
@@ -62,7 +65,7 @@ $query = mysqli_query($conn, "SELECT BookCover,Title,Author,ISBN FROM books ORDE
         &nbsp; &nbsp; <button type ="submit" name="submit" value="Search" class="btn">Search</button>
       
 	  <div class="float-right">
-        <a href="bookSearch.html"><button id="add-book-btn" type="button" class="btn">Add Book</button></a>
+        <a href="bookSearch.php"><button id="add-book-btn" type="button" class="btn">Add Book</button></a>
       </div> 
 	  
 	  

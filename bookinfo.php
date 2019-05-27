@@ -1,28 +1,31 @@
 <?php
-    error_reporting(0);
-    require "connectBS.php";
-    require "bookResultProcess.php";
-    //$isbn = '9781400069286';
-    //$query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN";
-    //$data = $conn -> query($query);
-    //result = $data -> fetch(PDO::FETCH_ASSOC);
 
-    // $isbn = $result['ISBN'];
-    // $title = $result['Title'];
-    // $author = $result['Author'];
-    // $genre = $result['Genre'];
-    // $year = $result['PublishedDate'];
-    // $publisher = $result['Publisher'];
-    // $description = $result['BookDescription'];
-    // $pages = $result['Pages'];
-    // $cover = $result['BookCover'];
-    // $copies = $result['Copies'];
-    // $created = $result['CreatedDate'];
-    // $review =$result['Review'];
-    // $rate = $result['Rate'];
-    // $bstatus = $result['BookStatus'];
+    require "config.php";
+    require "bookResultProcess.php";
+ 
+    $id = $_SESSION["UserID"];
+    $isbn = $_GET['ISBN'];
+    //$isbn = '9781400069286';
+    $query = "SELECT * FROM books INNER JOIN owned ON owned.ISBN=books.ISBN WHERE books.ISBN=$isbn AND owned.UserID=$id";
+    $data = mysqli_query($conn,$query);
+    $result = mysqli_fetch_assoc($data);
+
+    $title = $result['Title'];
+    $author = $result['Author'];
+    $genre = $result['Genre'];
+    $publishDate = $result['PublishedDate'];
+    $publisher = $result['Publisher'];
+    $desc = $result['BookDescription'];
+    $pages = $result['Pages'];
+    $cover = $result['BookCover'];
+    $copies = $result['Copies'];
+    $created = $result['CreatedDate'];
+    $review =$result['Review'];
+    $rating = $result['Rate'];
 ?>
 
+<!DOCTYPE html>
+<html>
 <head>
     <title>Dashboard - Biblio</title>
     <meta charset="utf-8">
@@ -42,94 +45,53 @@
     </style>
 
 </head>
-<!-- <?php
-  include "manualBook.php";
-?> -->
+
 <body>
 
-    <header id="header">
-        <!--Menu Button-->
-        <a id="biblio" href="index.html">
-            <h2>Biblio</h2>
-        </a>
-
-        <!-- profile picture -->
-        <div class="dropdown">
-            <img src="media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Setting</a>
-                <a class="dropdown-item" href="preview.html">Logout</a>
-            </div>
-        </div>
-    </header>
-
-    <nav class="navigation">
-        <div>
-            <ul>
-                <li class="navigation-item active">
-                    <a href="../index.html">DASHBOARD</a>
-                </li>
-                <li class="navigation-item">
-                    <a href="../book.html">BOOKS</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="../Lending/lending.html">LENDING</a>
-                </li>
-
-                <li class="navigation-item">
-                    <a href="#">MEMBER</a>
-                </li>
-                <li class="navigation-item">
-                    <a href="../statistic.html">STATISTIC</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <main class="container">
+    <?php include 'header.php';?>
+    <main class="container alert-top">
 
         <div class="alert alert-warning" role="alert">
             <h2>Book Details</h2>
             <div id="btn-div">
-                <button class="edit-btn" id="edit">Edit</button>
-                <button class="edit-btn" onclick="goBack()">Back</button>
+                <?php echo "<a href='bookinfo/editinfo.php?ISBN=$isbn'><button class='edit-btn'>Edit</button></a>";?>
+                <a href="book.php"><button class="edit-btn">Back</button></a>
             </div>
         </div>
 
-
+        
 
         <div class="book-boxes center">
 
             <div>
                 <h2 class="bookinfo-title"><?php echo $title; ?></h2>
             </div>
-
-
+            
+            
             <div class="top">
                 <div class="book-left">
-                    <img src=<?php echo $img;?> class="book-img">
+                    <img src=<?php echo $cover;?> class="book-img">
                     <div class="wrapper">
-                        <input type="checkbox" id="st1" value="1" />
-                        <label for="st1"></label>
-                        <input type="checkbox" id="st2" value="2" />
-                        <label for="st2"></label>
-                        <input type="checkbox" id="st3" value="3" />
-                        <label for="st3"></label>
-                        <input type="checkbox" id="st4" value="4" />
-                        <label for="st4"></label>
-                        <input type="checkbox" id="st5" value="5" />
-                        <label for="st5"></label>
+                        <?php 
+                            for($i=1;$i<=5;$i++){
+                                if($rating = NULL){
+                                    echo "<img src='media/grey star.png'>";
+                                }
+                                else if($i<=$rating){
+                                    echo "<img src='media/yellow star.png'>";
+                                }else{
+                                    echo "<img src='media/grey star.png'>";
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
-
+                    
                 <div id="description">
-                    <p><?php echo $description; ?></p>
-                </div>
+                    <p><?php echo $desc; ?></p>
+                </div>   
             </div>
-
+             
 
             <div class="bottom">
                 <h4>Details</h4>
@@ -144,19 +106,15 @@
                 </tr>
                 <tr>
                     <td class="table-attr">Genre</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="table-attr">Edition</td>
-                    <td></td>
+                    <td><?php echo $genre;?></td>
                 </tr>
                 <tr>
                     <td class="table-attr">ISBN</td>
-                    <td><?php echo $isbn_13;?></td>
+                    <td><?php echo $isbn;?></td>
                 </tr>
                 <tr>
                     <td class="table-attr">Published Date</td>
-                    <td><?php echo $year;?></td>
+                    <td><?php echo $publishDate;?></td>
                 </tr>
                 <tr>
                     <td class="table-attr">Publisher</td>
@@ -168,12 +126,11 @@
                 </tr>
                 <tr>
                     <td class="table-attr">Copies</td>
-                    <td>1</td>
-
+                    <td><?php echo $copies;?></td>
                 </tr>
                 <tr>
                     <td class="table-attr">Created Date</td>
-                    <td><?php echo date("Y-m-d");?></td>
+                    <td><?php echo $created;?></td>
                 </tr>
             </table>
             </div>
@@ -181,9 +138,13 @@
                 <h4>Review</h4>
                 <p><?php echo $review;?></p>
             </div>
-        </div>
+            <?php 
+                echo "<a href='bookinfo/transactionlog.php?ISBN=".$isbn."&id=".$id."'>";
+            ?>
+           <button type="button" class="btn transaction-btn">Transaction Log</button></a>
+        </div> 
 
-
+        
     </main>
     <footer class="text-center font-italic">
         <hr>

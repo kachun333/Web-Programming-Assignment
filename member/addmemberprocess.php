@@ -1,5 +1,5 @@
 <?php 
-
+    include '../session.php';
     include '../config.php';
 
     
@@ -24,13 +24,18 @@
         $nophone = $_POST['nophone'];
         $email = $_POST['email'];
         $address = addslashes($_POST['address']);
-        $userid = '1';
-    
-        echo $fname." ".$lname;
-        $query = "SELECT FirstName, LastName, PhoneNumber, Email FROM members WHERE PhoneNumber = '$nophone' OR Email = '$email'";
+        $id = $_SESSION["UserID"];
+        $count = 0;
+        $query = "SELECT FirstName, LastName, PhoneNumber, Email, UserID FROM members WHERE PhoneNumber = '$nophone' OR Email = '$email'";
         $record = mysqli_query($conn,$query);
 
-        if(mysqli_num_rows($record)>0){
+        while($row = mysqli_fetch_assoc($record)){
+            if($row["UserID"] == $id){
+                $count+=1;
+            }
+        }
+
+        if($count>0){
             echo '<script type="text/javascript">'; 
             echo 'alert("The member is existed");'; 
             echo 'window.location.href = "member.php";';
@@ -38,7 +43,7 @@
         }else{
             if($file){
                 $sql = "INSERT INTO members (FirstName,LastName,PhoneNumber,Email,MemberAddress,UserID) 
-                VALUES ('$fname','$lname','$nophone','$email','$address','$userid')" ; 
+                VALUES ('$fname','$lname','$nophone','$email','$address','$id')" ; 
                 mysqli_query($conn, $sql);
                 echo "Done";
                 header("Location:member.php");
@@ -51,7 +56,7 @@
                             move_uploaded_file($fileTmpName,$fileDestination);
         
                             $sql = "INSERT INTO members (FirstName,LastName,PhoneNumber,Email,MemberAddress,UserID,Photo) 
-                            VALUES ('$fname','$lname','$nophone','$email','$address','$userid','$fileDestination')" ; 
+                            VALUES ('$fname','$lname','$nophone','$email','$address','$id','$fileDestination')" ; 
                             mysqli_query($conn, $sql);
                             echo "Done";
                             header("Location:member.php");

@@ -1,11 +1,13 @@
 <?php
     //including the database connection file
+    include '../session.php';
     include_once("../config.php");
 
+    $id = $_SESSION["UserID"];
     //fetching data in descending order (lastest entry first)
     //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
     //for displaying all books
-    $result = mysqli_query($conn, "SELECT * FROM members WHERE UserID = '1' ORDER BY MemberID"); // using mysqli_query instead
+    $result = mysqli_query($conn, "SELECT * FROM members WHERE UserID = $id ORDER BY MemberID"); // using mysqli_query instead
 ?>
 
 <!DOCTYPE html>
@@ -28,47 +30,7 @@
 </head>
 
 <body>
-    <header id="header">
-        <!--Menu Button-->
-        <a id="biblio" href="index.php">
-            <h2>Biblio</h2>
-        </a>
-
-        <!-- profile picture -->
-        <div class="dropdown">
-            <img src="../media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Setting</a>
-                <a class="dropdown-item" href="preview.html">Logout</a>
-            </div>
-        </div>
-    </header>
-
-    <nav class="navigation">
-        <div>
-            <ul>
-                <li class="navigation-item">
-                    <a href="../index.php">DASHBOARD</a>
-                </li>
-                <li class="navigation-item active">
-                    <a href="../book.php">BOOKS</a>
-                </li>
-                <li class="navigation-item">
-                    <a href="../Lending/lending.html">LENDING</a>
-                </li>
-                <li class="navigation-item">
-                    <a href="member.php">MEMBER</a>
-                </li>
-                <li class="navigation-item">
-                    <a href="../statistic.php">STATISTIC</a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
+    <?php include 'memberheader.php'?>
 
     <main class="container min-container alert-top">
         <div class="alert alert-warning" role="alert">
@@ -97,7 +59,8 @@
             echo "<td>".$res['FirstName']." ".$res['LastName']."</td>";
             echo "<td>".$res['PhoneNumber']."</td>";
             echo "<td>".$res['Email']."</td>";
-            echo "<td><a href=\"member\memberinfo.php?id=$res[MemberID]\"><button type=\"button\" class=\"btn\">View</button></a> <br>";		
+            echo "<td><a href=\"memberinfo.php?memberId=$res[MemberID]\"><button type=\"button\" class=\"btn\">View</button></a> <br><br>		
+            <a href=\"deletemember.php?memberID=$res[MemberID]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button type=\"button\" class=\"btn\">Delete</button></a></td>";
         }
 	?>
 

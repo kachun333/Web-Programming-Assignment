@@ -23,6 +23,6 @@
         mysqli_query($conn, $sql);
         mysqli_query($conn,$sql2);
 
-        header("Location:bookinfo.php?isbn=$isbn");
+        header("Location:bookinfo.php?ISBN=$isbn");
     }
 ?>

@@ -52,7 +52,7 @@ $(document).ready(function(){
               pages = response.items[0].volumeInfo.pageCount;
             }
              window.location.href = "bookinfo.php?title=" + title + "&author=" + author
-             + "&url=" + url + "&description=" + description + "&isbn_13=" +isbn_13+ "&year="+year
+             + "&url=" + url + "&description=" + description + "&ISBN=" +isbn_13+ "&year="+year
              + "&publisher="+publisher+"&pages="+pages+"&image="+image;
 
         });

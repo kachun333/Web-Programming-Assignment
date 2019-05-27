@@ -16,46 +16,25 @@ window.onload = function() {
   cnt3.start();
   cnt4.start();
 
-    getError();
 };
 
 
-function getError() {
-
-var check = document.getElementById('3Y');
-
-check.onclick = function() {
-  alert("Data is not available for 3 years");
-}
-}
-
-var mysql = require('mysql');
-var connect = mysql.createConnection({
-  host: "",
-  user: "",
-  password: ""
-});
-
-
-var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var config1 = {
   type: 'line',
   data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: monthLabel,
     datasets: [{
       label: 'Books Own',
       backgroundColor: window.chartColors.red,
       borderColor: window.chartColors.red,
-      data: data1,
+      data: bookData,
       fill: false,
     }, {
       label: 'Loans Activity',
       fill: false,
       backgroundColor: window.chartColors.blue,
       borderColor: window.chartColors.blue,
-      data: [
-        1,2,3,4,5,6,9
-      ],
+      data: loanData,
     }]
   },
   options: {
@@ -95,9 +74,7 @@ var config2 = {
   type: 'pie',
   data: {
     datasets: [{
-      data: [
-        6,7,8,3
-      ],
+      data: chartData2,
       backgroundColor: [
         window.chartColors.red,
         window.chartColors.orange,
@@ -107,12 +84,7 @@ var config2 = {
       ],
       label: 'Dataset 1'
     }],
-    labels: [
-      'Fantasy',
-      'Sci-Fi',
-      'Mystery',
-      'Romance',
-    ]
+    labels: chartLabel2
   },
   options: {
     responsive: true
@@ -123,9 +95,7 @@ var config3 = {
   type: 'pie',
   data: {
     datasets: [{
-      data: [
-        4,1,3,1
-      ],
+      data: chartData3,
       backgroundColor: [
         window.chartColors.red,
         window.chartColors.orange,
@@ -135,12 +105,7 @@ var config3 = {
       ],
       label: 'Dataset 1'
     }],
-    labels: [
-      'Fantasy',
-      'Sci-Fi',
-      'Mystery',
-      'Romance',
-    ]
+    labels: chartLabel3
   },
   options: {
     responsive: true

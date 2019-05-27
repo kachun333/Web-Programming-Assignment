@@ -87,3 +87,7 @@ hr{
 .dropdown-content a:hover {background-color: #ddd;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #e07d1a;}
+
+.figure-caption{
+  width:250px;
+}

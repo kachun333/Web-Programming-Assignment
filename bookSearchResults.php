@@ -67,7 +67,7 @@
   </nav>
   <?php
   error_reporting(0);
-  require "connectBS.php";
+  require "config.php";
   require "bookResultProcess.php";
 
    ?>

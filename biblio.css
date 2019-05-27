@@ -101,18 +101,6 @@ a:visited {
 
 
 /*login*/
-.signin {
-  max-width: 3600px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  margin: 0 0 15px;
-  padding: 20px;
-  background: #d66853;
-  text-align: center;
-}
 
 .signin .loginbtn {
   background: #4caf50;
@@ -307,7 +295,10 @@ footer {
 }
 
 .dash-checkout p:first-child{
-  font-size:18px;
+  font-size:15px;
+  max-height: 25px;
+  max-width: 230px;
+  overflow: hidden;
 }
 
 .dash-checkout div{
@@ -664,6 +655,19 @@ vertical-align: top;
   border-radius: 3px;
 }
 
+/*Member Info*/
+.lend-right{
+  float:right:
+}
+
+.table3{
+  margin-top:20px;
+}
+
+.table3 tr{
+ height:30px;
+}
+
 /*Table for Members*/
 #membersinfo table {
   border-collapse: collapse;
@@ -676,4 +680,18 @@ vertical-align: top;
     text-align: center;
   background-color: #D66853;
   color: white;
+}
+
+/*Lending*/
+
+.lend-btns{
+  float:right;
+  position:relative;
+  top:-30px;
+  left:-30px;
+}
+
+.lend{
+  display:block;
+  overflow: hidden;
 }

@@ -29,42 +29,7 @@
 
 
     <!-- profile picture -->
-    <div class="dropdown">
-      <img src="media/profile pic.png" role="button" id="profile" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-
-
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#">Profile</a>
-        <a class="dropdown-item" href="#">Setting</a>
-        <a class="dropdown-item" href="preview.html">Logout</a>
-      </div>
-    </div>
-  </header>
-
-  <nav class="navigation">
-    <div>
-      <ul>
-        <li class="navigation-item active">
-          <a href="index.php">DASHBOARD</a>
-        </li>
-        <li class="navigation-item">
-          <a href="book.php">BOOKS</a>
-        </li>
-
-        <li class="navigation-item">
-          <a href="Lending/lending.html">LENDING</a>
-        </li>
-
-        <li class="navigation-item">
-          <a href="membber/member.php">MEMBER</a>
-        </li>
-        <li class="navigation-item">
-          <a href="statistic.php">STATISTIC</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <?php include 'header.php'?>
   <div class="container-fluid">
         <br><br>
         <h3 align="center"><em>Search Online by ISBN</em></h3><br>

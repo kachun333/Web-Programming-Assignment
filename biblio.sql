@@ -19,7 +19,7 @@ CREATE TABLE Books (
     BookLanguage VARCHAR(32),
     PublishedDate DATE NOT NULL,
     Publisher VARCHAR(50) NOT NULL,
-    BookDescription VARCHAR(255),
+    BookDescription LONGTEXT,
     Pages INT,
     BookCover VARCHAR(255),
     CONSTRAINT PK_Book PRIMARY KEY(ISBN)
@@ -28,11 +28,11 @@ CREATE TABLE Books (
 CREATE TABLE Owned (
     UserID INT NOT NULL,
     ISBN VARCHAR(255) NOT NULL,
-    Copies int DEFAULT 1,
+    Copies int NOT NULL DEFAULT 1,
     CreatedDate DATE,
-    Review VARCHAR(255),
+    Review LONGTEXT,
     Rate int,
-    AvailableCopies INT NOT NULL,
+    AvailableCopies INT NOT NULL DEFAULT 1,
     CONSTRAINT FK_OwnedUser FOREIGN KEY(UserID) 
     REFERENCES Users(UserID),
     CONSTRAINT FK_OwnedBook FOREIGN KEY(ISBN) 
@@ -62,7 +62,7 @@ CREATE TABLE Transactions (
     BorrowDate DATE NOT NULL,
     ReturnDate DATE,
     ExpiredDate DATE NOT NULL,
-    TransactionsStatus VARCHAR(30),
+    TransactionStatus VARCHAR(30),
     CONSTRAINT PK_Transaction PRIMARY KEY(TransactionID),
     CONSTRAINT FK_BorrowMember FOREIGN KEY(MemberID)
     REFERENCES Members(MemberID),
